@@ -1,0 +1,13 @@
+libnss libnss-ldap/rootbindpw password <PASSWORD>
+libnss libnss-ldap/bindpw password <PASSWORD>
+libnss libnss-ldap/override boolean true
+libnss libnss-ldap/confperm boolean false
+libnss shared/ldapns/ldap_version select 3
+libnss shared/ldapns/base-dn string dc=jtc
+libnss shared/ldapns/ldap-server string ldap_jtc
+libnss libnss-ldap/binddn string cn=proxyuser,dc=jtc
+libnss libnss-ldap/dblogin boolean false
+libnss libnss-ldap/dbrootlogin boolean true
+libnss libnss-ldap/rootbinddn string cn=manager,dc=jtc
+
+
