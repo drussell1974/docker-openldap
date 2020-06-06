@@ -1,0 +1,11 @@
+dn: uid=dave,ou=Employee,dc=jtc
+changetype: delete
+
+dn: cn=netadmins,ou=Employee,dc=jtc
+changetype: delete
+
+dn: ou=Employee,dc=jtc
+changetype: delete
+
+dn: ou=Groups,dc=jtc
+changetype: delete

@@ -1,0 +1,17 @@
+dn: ou=Groups,dc=jtc
+objectClass: organizationalUnit
+ou: Groups
+
+dn: ou=Employee,ou=Groups,dc=jtc
+objectClass: organizationalUnit
+ou: Employee
+
+dn: cn=netadmins,ou=Employee,dc=jtc
+objectClass: posixGroup
+cn: netadmins
+gidNumber: 5000
+
+dn: cn=developers,ou=Employee,dc=jtc
+objectClass: posixGroup
+cn: developers
+gidNumber: 5001
