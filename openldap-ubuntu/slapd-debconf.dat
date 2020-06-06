@@ -1,8 +1,8 @@
 #!/bin/sh
-slapd slapd/password1 password Admin1.
-slapd slapd/internal/adminpw password Admin1.
-slapd slapd/internal/generated_adminpw password Admin1.
-slapd slapd/password2 password Admin1.
+slapd slapd/password1 password <PASSWORD>
+slapd slapd/internal/adminpw password <PASSWORD>
+slapd slapd/internal/generated_adminpw password <PASSWORD>
+slapd slapd/password2 password <PASSWORD>
 
 slapd slapd/unsafe_selfwrite_acl note
 slapd slapd/purge_database boolean false
