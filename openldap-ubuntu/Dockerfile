@@ -26,4 +26,7 @@ ADD openldap-install /usr/openldap/install
 # start service when container starts
 ENTRYPOINT service slapd start && bash
 
+# Expose LDAP ports 389 non-secure port or 636 secure port for tls
+# FOR DOCUMENTATION PURPOSE ONLY you use the '-p 389:389 -p 636:636' in 
+# the command line or - ports: -389:389 -636:636 in docker-compose.yml file
 EXPOSE 389 636
