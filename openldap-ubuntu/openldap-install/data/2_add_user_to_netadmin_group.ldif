@@ -1,0 +1,15 @@
+dn: uid=drussell,ou=Employees,dc=daverussell,dc=co,dc=uk
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: drussell
+sn: russell
+givenName: David
+cn: David Russell
+displayName: Dave Russell
+uidNumber: 10000
+gidNumber: 5001
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/drussell
+

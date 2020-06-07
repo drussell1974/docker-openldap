@@ -1,17 +1,14 @@
-dn: ou=Groups,dc=jtc
+dn: ou=Employees,dc=daverussell,dc=co,dc=uk
 objectClass: organizationalUnit
-ou: Groups
+ou: Employees
 
-dn: ou=Employee,ou=Groups,dc=jtc
-objectClass: organizationalUnit
-ou: Employee
-
-dn: cn=netadmins,ou=Employee,dc=jtc
+dn: cn=netadmins,ou=Employees,dc=daverussell,dc=co,dc=uk
 objectClass: posixGroup
 cn: netadmins
-gidNumber: 5000
+gidNumber: 5001
 
-dn: cn=developers,ou=Employee,dc=jtc
+dn: cn=developers,ou=Employees,dc=daverussell,dc=co,dc=uk
 objectClass: posixGroup
 cn: developers
-gidNumber: 5001
+gidNumber: 5002
+
