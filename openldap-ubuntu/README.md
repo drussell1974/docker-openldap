@@ -1,5 +1,6 @@
-OPEN LDAP SERVER
+OPENLDAP SERVER
 ================
+A basic LDAPServer installation with Docker. I've created it just for fun.
 
 Building the image
 ------------------
