@@ -21,12 +21,16 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y slapd ldap-utils
 RUN debconf-show slapd
 
 # create volumes for ldap cofiguration, ldap data and certificates ssh
-ADD openldap-install /usr/openldap/install
+# copy sldapd-debconf.dat file and custom folder to install folder
+ADD slapd-debconf.dat .
+ADD custom .
 
-# Add volume for initialise data
-### place ldif files to be executed when running container ###
+# Add volume for initialised ldif file and persisted data
+## Use command 'docker volume craate <VOLUME_NAME>' to create named volume and -v parameter when running container 'docker run -v <VOLUME_NAME>:<CONTAINER_PATH> openldap-server'
+### - place ldif files to be executed when running container ###
+### - location for data files to be persisted when running container ###
 ### do not change any data in the volume after this line ###
-VOLUME /usr/openldap/install/init/data/init
+VOLUME ["/usr/openldap/install/init", "/usr/openldap/install/data"]
 
 # start service when container starts
 ENTRYPOINT service slapd start && bash
