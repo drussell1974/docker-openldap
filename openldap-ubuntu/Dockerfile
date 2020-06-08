@@ -23,6 +23,11 @@ RUN debconf-show slapd
 # create volumes for ldap cofiguration, ldap data and certificates ssh
 ADD openldap-install /usr/openldap/install
 
+# Add volume for initialise data
+### place ldif files to be executed when running container ###
+### do not change any data in the volume after this line ###
+VOLUME /usr/openldap/install/init/data/init
+
 # start service when container starts
 ENTRYPOINT service slapd start && bash
 
