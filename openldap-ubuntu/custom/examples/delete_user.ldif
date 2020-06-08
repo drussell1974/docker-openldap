@@ -1,3 +1,0 @@
-dn: uid=dave,ou=Employee,dc=daverussell,dc=co,dc=uk
-changetype: delete
-
