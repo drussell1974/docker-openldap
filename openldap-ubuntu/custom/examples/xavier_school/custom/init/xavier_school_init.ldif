@@ -1,0 +1,135 @@
+# organisational units
+ 
+dn: ou=employees,dc=xavier,dc=institute
+objectClass: organizationalUnit
+ou: employees
+
+dn: ou=students,dc=xavier,dc=institute
+objectClass: organizationalUnit
+ou: students
+
+# Groups
+
+dn: cn=teachers,ou=employees,dc=xavier,dc=institute
+objectClass: posixGroup
+cn: teachers
+gidNumber: 5001
+
+dn: cn=residential,ou=students,dc=xavier,dc=institute
+objectClass: posixGroup
+cn: residential
+gidNumber: 5002
+
+dn: cn=technical,ou=employees,dc=xavier,dc=institute
+objectClass: posixGroup
+cn: technical
+gidNumber: 5003
+
+# Teachers
+
+dn: uid=prof.xavier,ou=Employees,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: prof.xavier
+sn: Xavier
+givenName: Charles Francis
+cn: Professor Charles Xavier
+displayName: Professor Xavier
+uidNumber: 1001
+gidNumber: 5001
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/cxavier
+
+dn: uid=wolverine,ou=Employees,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: wolverine
+sn: Howlett
+givenName: James
+cn: wolverine
+displayName: Wolverine
+uidNumber: 1002
+gidNumber: 5001
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/wolverine
+
+dn: uid=storm,ou=Employees,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: storm
+sn: Munroe
+givenName: Ororo
+cn: storm
+displayName: Storm
+uidNumber: 1003
+gidNumber: 5001
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/storm
+
+dn: uid=rogue,ou=Employees,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: rogue
+sn: Lebeau
+givenName: Anna-Marie
+cn: rogue
+displayName: Rogue
+uidNumber: 1004
+gidNumber: 5001
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/rogue
+
+# Students
+
+dn: uid=10001,ou=students,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: 10001
+sn: Abidemi
+givenName: Nezhno
+cn: gentle
+displayName: Gentle
+uidNumber: 10001
+gidNumber: 5002
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/10001
+
+dn: uid=10002,ou=students,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: 10002
+sn: Vaccarro
+givenName: Santo
+cn: rockslide
+displayName: Rockslide
+uidNumber: 10002
+gidNumber: 5002
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/10002
+
+dn: uid=10003,ou=students,dc=xavier,dc=institute
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: 10003
+sn: Gitter
+givenName: Eric
+cn: ink
+displayName: Ink
+uidNumber: 10003
+gidNumber: 5002
+userPassword: Password1.
+loginShell: /bin/bash
+homeDirectory: /home/10003

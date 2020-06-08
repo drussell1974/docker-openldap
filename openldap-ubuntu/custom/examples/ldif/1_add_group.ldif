@@ -1,0 +1,22 @@
+dn: ou=employees,dc=daverussell,dc=co,dc=uk
+objectClass: organizationalUnit
+ou: employees
+
+dn: ou=students,dc=daverussell,dc=co,dc=uk
+objectClass: organizationalUnit
+ou: students
+
+dn: cn=netadmins,ou=employees,dc=daverussell,dc=co,dc=uk
+objectClass: posixGroup
+cn: netadmins
+gidNumber: 5001
+
+dn: cn=developers,ou=employees,dc=daverussell,dc=co,dc=uk
+objectClass: posixGroup
+cn: developers
+gidNumber: 5002
+
+dn: cn=residential,ou=students,dc=daverussell,dc=co,dc=uk
+objectClass: posixGroup
+cn: residential
+gidNumber: 5003
