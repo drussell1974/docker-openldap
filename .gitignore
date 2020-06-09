@@ -4,3 +4,4 @@
 *.key
 *.srl
 init_ldif/
+!init_ldif/README.md
