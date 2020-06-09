@@ -31,9 +31,11 @@ ADD custom .
 ### do not change any data in the volume after this line ###
 VOLUME ["/usr/openldap/install/init", "/usr/openldap/install/data"]
 
+
 # start service when container starts
 COPY docker-entrypoint.sh .
 ENTRYPOINT ["/usr/openldap/install/docker-entrypoint.sh"]
+
 
 # Expose LDAP ports 389 non-secure port or 636 secure port for tls
 # FOR DOCUMENTATION PURPOSE ONLY you use the '-p 389:389 -p 636:636' in 
