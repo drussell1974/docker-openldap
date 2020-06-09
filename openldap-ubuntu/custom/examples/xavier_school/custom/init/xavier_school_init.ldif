@@ -89,7 +89,7 @@ homeDirectory: /home/rogue
 
 # Students
 
-dn: uid=10001,ou=students,dc=xavier,dc=institute
+dn: uid=gentle,ou=students,dc=xavier,dc=institute
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
@@ -104,11 +104,11 @@ userPassword: Password1.
 loginShell: /bin/bash
 homeDirectory: /home/10001
 
-dn: uid=10002,ou=students,dc=xavier,dc=institute
+dn: uid=rockslide,ou=students,dc=xavier,dc=institute
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
-uid: 10002
+uid: rockslide
 sn: Vaccarro
 givenName: Santo
 cn: rockslide
@@ -119,11 +119,11 @@ userPassword: Password1.
 loginShell: /bin/bash
 homeDirectory: /home/10002
 
-dn: uid=10003,ou=students,dc=xavier,dc=institute
+dn: uid=ink,ou=students,dc=xavier,dc=institute
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
-uid: 10003
+uid: ink
 sn: Gitter
 givenName: Eric
 cn: ink
