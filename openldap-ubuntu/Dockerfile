@@ -4,7 +4,6 @@ MAINTAINER Dave Russell, dave@daverussell.co.uk
 # TODO: Read ENV LDAP_ADMIN_PASSWORD, LDAP_UNSAFE_SELFWRITE_ACL, LDAP_PURGE_DATABASE, LDAP_DOMAIN, LDAP_PPOLICY_SCHEMA_NEEDS_UPDATE, LDAP_INVALID_CONFIG, LDAP_MOVE_OLD_DATABASE, LDAP_BACK_END, LDAP_ORGANISATION_NAME, LDAP_BACKUP_DIR, LDAP_NO_CONFIGURATION, LDAP_DUMP_DATABASE, 
 ENV LDAP_DOMAIN=jtc
 
-
 # INSTALL OpenLDAP FROM DEBCONF FILE
 
 # apt-utils is required for the debconf
@@ -33,7 +32,8 @@ ADD custom .
 VOLUME ["/usr/openldap/install/init", "/usr/openldap/install/data"]
 
 # start service when container starts
-ENTRYPOINT service slapd start && bash
+COPY docker-entrypoint.sh .
+ENTRYPOINT ["/usr/openldap/install/docker-entrypoint.sh"]
 
 # Expose LDAP ports 389 non-secure port or 636 secure port for tls
 # FOR DOCUMENTATION PURPOSE ONLY you use the '-p 389:389 -p 636:636' in 

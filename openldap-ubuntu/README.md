@@ -56,7 +56,7 @@ Running the container open the server
 
 > docker pull drussell1974/openldap
 
-> sudo docker run -d -p 389:389 --hostname ldap.daverusell.co.uk drussell1974/openldap-server:latest
+> sudo docker run -itd -p 389:389 --hostname ldap.daverusell.co.uk drussell1974/openldap-server:latest
 
 3. Test OpenLDAP is running (where dc is your domain)
 
