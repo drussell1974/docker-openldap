@@ -10,4 +10,5 @@ services:
                         - LDAP_INIT_DIR=init
                         - LDAP_INIT_FILE=init.ldif
                 ports:
-                        - 398:398
+                        - 389:389
+                        - 636:636
