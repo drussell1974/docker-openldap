@@ -55,6 +55,36 @@ Build configuration
 
 > docker-compose build
 
+*The output from the build should include the ENV values set in the Dockerfile, except the password (other environment variable can be used to set the other values - not yet supported).*
+
+```
+setting up slapd (2.4.49+dfsg-2ubuntu1.2) ...
+  Creating new user openldap... done.
+  Creating initial configuration... done.
+  Creating LDAP directory... done.
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+Processing triggers for libc-bin (2.31-0ubuntu9) ...
+  slapd/internal/adminpw: (password omitted)
+* slapd/password1: (password omitted)
+* slapd/internal/generated_adminpw: (password omitted)
+* slapd/internal/sadminpw: (password omitted)
+* slapd/password2: (password omitted)
+* slapd/domain: example.net
+* slapd/backend: MDB 
+  slapd/unsafe_selfwrite_acl:
+* slapd/ppolicy_schema_needs_update: abort installation
+* slapd/invalid_config: true
+* slapd/purge_database: false
+* shared/organization: Dave Russell Home
+* slapd/no_configuration: false
+* slapd/dump_database_destdir: /var/backups/slapd-backup
+  slapd/upgrade_slapcat_failure:
+  slapd/password_mismatch:
+* slapd/move_old_database: true 
+* slapd/dump_database: when needed
+
+```
 Run the container
 -----------------
 -----------------
@@ -87,8 +117,20 @@ LDAP_ADMIN_USER=cn=admin
 LDAP_ADMIN_PASSWORD=<PASSWORD>
 ```
 
-> docker-compose build
+> docker-compose up
 
+```
+Creating network "openldap-server_default" with the default driver
+Creating openldap-server_ldapserver_1 ... done
+Attaching to openldap-server_ldapserver_1
+ldapserver_1  |  * Starting OpenLDAP slapd
+ldapserver_1  |    ...done.
+ldapserver_1  | docker-entrypoint.sh: checking init_ldif/init.ldif for dc=example,dc=net
+ldapserver_1  | docker-entrypoint.sh: adding ldif to ldap directory cn=admin,dc=example,dc=net
+ldapserver_1  | adding new entry "ou=employees,dc=example,dc=net"
+ldapserver_1  | 
+ldapserver_1  | keep alive
+```
 
 Test OpenLDAP is running (where dc is your domain)
 --------------------------------------------------
