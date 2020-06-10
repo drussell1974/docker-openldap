@@ -1,0 +1,27 @@
+dn: ou=employees,dc=example,dc=net
+objectClass: organizationalUnit
+ou: employees
+
+dn: ou=students,dc=example,dc=net
+objectClass: organizationalUnit
+ou: students
+
+dn: cn=netadmins,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: netadmins
+gidNumber: 5001
+
+dn: cn=developers,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: developers
+gidNumber: 5002
+
+dn: cn=hr,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: hr
+gidNumber: 5003
+
+dn: cn=finance,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: finance
+gidNumber: 5004
