@@ -72,13 +72,15 @@ Run the container
 
 > docker pull drussell1974/openldap
 
-> docker run -itd -p 389:389 --hostname ldap.example.net
->   -e LDAP_DOMAIN=example.net
->   -e LDAP_BASE_DN=dc=example,dc=net
->   -e LDAP_ORGANIZATION_NAME=Example Net
->   -e LDAP_ADMIN_USER=cn=admin
->   -e LDAP_ADMIN_PASSWORD=<PASSWORD>
->   drussell1974/openldap-server:latest
+```
+ docker run -itd -p 389:389 --hostname ldap.example.net
+   -e LDAP_DOMAIN=example.net
+   -e LDAP_BASE_DN=dc=example,dc=net
+   -e LDAP_ORGANIZATION_NAME=Example Net
+   -e LDAP_ADMIN_USER=cn=admin
+   -e LDAP_ADMIN_PASSWORD=<PASSWORD>
+   drussell1974/openldap-server:latest
+```
 
 *B. Using Docker Compose*
 
