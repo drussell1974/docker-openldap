@@ -119,9 +119,11 @@ LDAP_ADMIN_PASSWORD=<PASSWORD>
 
 > docker-compose up
 
+The output with init.ldif
+
 ```
-Creating network "openldap-server_default" with the default driver
-Creating openldap-server_ldapserver_1 ... done
+drussell1974@jtc1:~/docker/openldap-server$ sudo docker-compose up
+Recreating openldap-server_ldapserver_1 ... done
 Attaching to openldap-server_ldapserver_1
 ldapserver_1  |  * Starting OpenLDAP slapd
 ldapserver_1  |    ...done.
@@ -129,8 +131,27 @@ ldapserver_1  | docker-entrypoint.sh: checking init_ldif/init.ldif for dc=exampl
 ldapserver_1  | docker-entrypoint.sh: adding ldif to ldap directory cn=admin,dc=example,dc=net
 ldapserver_1  | adding new entry "ou=employees,dc=example,dc=net"
 ldapserver_1  | 
+ldapserver_1  | adding new entry "cn=netadmins,ou=employees,dc=example,dc=net"
+ldapserver_1  | 
+ldapserver_1  | adding new entry "cn=users,ou=employees,dc=example,dc=net"
+ldapserver_1  | 
+ldapserver_1  | adding new entry "uid=jdoe,ou=employees,dc=example,dc=net
+ldapserver_1  | 
+ldapserver_1  | adding new entry "uid=anna,ou=employees,dc=example,dc=net"
+ldapserver_1  | 
+ldapserver_1  | keep alive
+
+```
+
+The output without init.ldif
+
+```
+ldapserver_1  |  * Starting OpenLDAP slapd
+ldapserver_1  |    ...done.
+ldapserver_1  | docker-entrypoint.sh: checking init_ldif/init.ldif for dc=example,dc=net
 ldapserver_1  | keep alive
 ```
+
 
 Test OpenLDAP is running (where dc is your domain)
 --------------------------------------------------
