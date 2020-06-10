@@ -16,7 +16,12 @@ objectClass: posixGroup
 cn: developers
 gidNumber: 5002
 
-dn: cn=residential,ou=students,dc=example,dc=net
+dn: cn=hr,ou=employees,dc=example,dc=net
 objectClass: posixGroup
-cn: residential
+cn: hr
 gidNumber: 5003
+
+dn: cn=finance,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: finance
+gidNumber: 5004

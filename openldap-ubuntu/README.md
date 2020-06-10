@@ -4,41 +4,36 @@ A basic LDAPServer installation with Docker. I've created it just for fun.
 
 Building the image
 ------------------
+------------------
+1. Prebuild configuration
 
-1. Enter the LDAP Server information into the slapd-debconf.dat
-
-> vim slapd-defconf.data
-
-```
-slapd slapd/password1 password <password>
-slapd slapd/internal/adminpw password <password>
-slapd slapd/internal/generated_adminpw password <password>
-slapd slapd/password2 password <password>
-slapd slapd/unsafe_selfwrite_acl note
-slapd slapd/purge_database boolean false
-slapd slapd/domain string daverussell.co.uk
-slapd slapd/ppolicy_schema_needs_update select abort installation
-slapd slapd/invalid_config boolean true
-slapd slapd/move_old_database boolean true
-slapd slapd/backend select MDB
-slapd shared/organization string Dave Russell Web
-slapd slapd/dump_database_destdir string /var/backups/slapd-daverussell
-slapd slapd/no_configuration boolean false
-slapd slapd/dump_database select when needed
+> vim Dockerfile
 
 ```
+MAINTAINER Jane Doe, jdoe@example.net
 
-2. Save and close
+ENV LDAP_ORGANIZATION_NAME="Example Net"
+ENV LDAP_DOMAIN="example.org"
+ENV LDAP_ADMIN_PASSWORD="Password1."
+```
+A. Using Docker CLI
+-------------------
 
-
-2. From this directory containing the Dockerfile build the image 
+1. From this directory containing the Dockerfile build the image 
  
 > docker build -t openldap-server:latest .
 
+B. Using Docker Compose
+-----------------------
+
+1. From this directory containing the Dockerfile build the image 
+
+> docker-compose build
+
 Automating the build on hub.docker.com/drussell1974/openldap through github.com/drussell1974/docker-openldap
 ------------------------------------------------------------------------------------------------------------
-
-3. Merge and push the build to the master branch on github.com/drussell/docker-openldap
+------------------------------------------------------------------------------------------------------------
+1. Merge and push the build to the master branch on github.com/drussell/docker-openldap
 
 - Develop the changes on development branch. Once you've checked in your changes to development.
 
@@ -48,39 +43,59 @@ Automating the build on hub.docker.com/drussell1974/openldap through github.com/
 
 > git push
 
-Running the container open the server
--------------------------------------
+Run the container
+-----------------
+-----------------
+A. Using Docker CLI
+-------------------
 1. Logon to your server
 
 2. Get the image from hub.docker.com/drussell1974
 
 > docker pull drussell1974/openldap
 
-> sudo docker run -itd -p 389:389 --hostname ldap.daverusell.co.uk drussell1974/openldap-server:latest
+> docker run -itd -p 389:389 --hostname ldap.example.net drussell1974/openldap-server:latest
 
-3. Test OpenLDAP is running (where dc is your domain)
+B. Using Docker Compose
+-----------------------
 
-> ldapsearch -x -b dc=daverussell,dc=co,dc=uk
+1. Create or edit the .env 
+
+```
+LDAP_DOMAIN=example.net
+LDAP_BASE_DN=dc=example,dc=net
+LDAP_ORGANIZATION_NAME=Example Net
+LDAP_ADMIN_USER=cn=admin
+LDAP_ADMIN_PASSWORD=<PASSWORD>
+```
+
+> docker-compose build
+
+
+Test OpenLDAP is running (where dc is your domain)
+--------------------------------------------------
+
+> ldapsearch -x -b dc=example,dc=net
 
 ```
 # extended LDIF
 #
 # LDAPv3
-# base <dc=daverussell,dc=co,dc=uk> with scope subtree
+# base <dc=example,dc=net> with scope subtree
 # filter: (objectclass=*)
 # requesting: ALL
 #
 
-# daverussell.co.uk
-dn: dc=daverussell,dc=co,dc=uk
+# example
+dn: dc=example,dc=net
 objectClass: top
 objectClass: dcObject
 objectClass: organization
-o: Dave Russell Ltd
-dc: daverussell
+o: Example Net
+dc: example
 
-# admin, daverussell.co.uk
-dn: cn=admin,dc=daverussell,dc=co,dc=uk
+# admin, example.net
+dn: cn=admin,dc=example,dc=net
 objectClass: simpleSecurityObject
 objectClass: organizationalRole
 cn: admin

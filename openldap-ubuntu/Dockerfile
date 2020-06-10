@@ -3,8 +3,8 @@ MAINTAINER Dave Russell, dave@daverussell.co.uk
 
 # TODO: Read ENV LDAP_ADMIN_PASSWORD, LDAP_UNSAFE_SELFWRITE_ACL, LDAP_PURGE_DATABASE, LDAP_DOMAIN, LDAP_PPOLICY_SCHEMA_NEEDS_UPDATE, LDAP_INVALID_CONFIG, LDAP_MOVE_OLD_DATABASE, LDAP_BACK_END, LDAP_ORGANISATION_NAME, LDAP_BACKUP_DIR, LDAP_NO_CONFIGURATION, LDAP_DUMP_DATABASE, 
 
-ENV LDAP_ORGANIZATION_NAME="Example Ltd."
-ENV LDAP_DOMAIN="example.org"
+ENV LDAP_ORGANIZATION_NAME="Example Net."
+ENV LDAP_DOMAIN="example.net"
 ENV LDAP_ADMIN_PASSWORD="Password1."
 
 # INSTALL OpenLDAP FROM DEBCONF FILE
@@ -18,13 +18,6 @@ WORKDIR /usr/openldap/install
 # installing slapd from config file, set selections, then install slapd in noninteractive mode
 ADD slapd-debconf.sh .
 RUN sh -c /usr/openldap/install/slapd-debconf.sh
-
-## get setting for installing slapd from config file, set selections, then install slapd in noninteractive mode
-#COPY slapd-debconf.dat .
-#RUN debconf-set-selections slapd-debconf.dat && cat slapd-debconf.dat | debconf-set-selections
-#RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y slapd ldap-utils
-## show installation parameter output for debugging
-#RUN debconf-show slapd
 
 # create volumes for ldap cofiguration, ldap data and certificates ssh
 # copy sldapd-debconf.dat file and custom folder to install folder
