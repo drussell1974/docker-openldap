@@ -55,19 +55,6 @@ Build configuration
 
 > docker-compose build
 
-Automating the build on hub.docker.com/drussell1974/openldap through github.com/drussell1974/docker-openldap
-------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------
-1. Merge and push the build to the master branch on github.com/drussell/docker-openldap
-
-- Develop the changes on development branch. Once you've checked in your changes to development.
-
-> git checkout master
-
-> git merge development
-
-> git push
-
 Run the container
 -----------------
 -----------------
@@ -139,3 +126,17 @@ result: 0 Success
 # numResponses: 3
 # numEntries: 2
 ```
+
+
+Automating the build on hub.docker.com/drussell1974/openldap through github.com/drussell1974/docker-openldap
+------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------
+1. Merge and push the build to the master branch on github.com/drussell/docker-openldap
+
+- Develop the changes on development branch. Once you've checked in your changes to development.
+
+> git checkout master
+
+> git merge development
+
+> git push
