@@ -21,6 +21,12 @@ Building the image
 - Download slapd-debconf.sh
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/slapd-debconf.sh
 
+2. Ensure the sh files are executable
+
+> chmod 755 docker-entrypoint.sh
+
+> chmod 755 slapd-debconf.sh
+
 Build configuration
 -------------------
 Change the ENV values in the Dockerfile 
