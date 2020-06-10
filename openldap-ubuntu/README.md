@@ -5,7 +5,25 @@ A basic LDAPServer installation with Docker. I've created it just for fun.
 Building the image
 ------------------
 ------------------
-1. Prebuild configuration
+1. Create a build folder and download the build files to your docker host server
+
+> mkdir -p my_ldap_server
+
+- Download Dockerfile
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/Dockerfile
+
+- Download docker-compose.yml (Docker Compose only)
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/docker-compose.yml
+
+- Download docker-entrypoint.sh
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/docker-entrypoint.sh
+
+- Download slapd-debconf.sh
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/slapd-debconf.sh
+
+Build configuration
+-------------------
+Change the ENV values in the Dockerfile 
 
 > vim Dockerfile
 
@@ -14,17 +32,18 @@ MAINTAINER Jane Doe, jdoe@example.net
 
 ENV LDAP_ORGANIZATION_NAME="Example Net"
 ENV LDAP_DOMAIN="example.net"
-ENV LDAP_ADMIN_PASSWORD="Password1."
+ENV LDAP_ADMIN_PASSWORD=<PASSWORD>
 ```
-A. Using Docker CLI
+Build configuration
 -------------------
+
+*Option 1: Using Docker CLI*
 
 1. From this directory containing the Dockerfile build the image 
  
 > docker build -t openldap-server:latest .
 
-B. Using Docker Compose
------------------------
+*Option 2: Using Docker Compose*
 
 1. From this directory containing the Dockerfile build the image 
 
@@ -46,18 +65,22 @@ Automating the build on hub.docker.com/drussell1974/openldap through github.com/
 Run the container
 -----------------
 -----------------
-A. Using Docker CLI
--------------------
-1. Logon to your server
 
-2. Get the image from hub.docker.com/drussell1974
+*Option 1: Using Docker CLI*
+
+1. Get the image from hub.docker.com/drussell1974
 
 > docker pull drussell1974/openldap
 
-> docker run -itd -p 389:389 --hostname ldap.example.net drussell1974/openldap-server:latest
+> docker run -itd -p 389:389 --hostname ldap.example.net
+>   -e LDAP_DOMAIN=example.net
+>   -e LDAP_BASE_DN=dc=example,dc=net
+>   -e LDAP_ORGANIZATION_NAME=Example Net
+>   -e LDAP_ADMIN_USER=cn=admin
+>   -e LDAP_ADMIN_PASSWORD=<PASSWORD>
+>   drussell1974/openldap-server:latest
 
-B. Using Docker Compose
------------------------
+*B. Using Docker Compose*
 
 1. Create or edit the .env 
 
