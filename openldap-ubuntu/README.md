@@ -13,7 +13,7 @@ Building the image
 MAINTAINER Jane Doe, jdoe@example.net
 
 ENV LDAP_ORGANIZATION_NAME="Example Net"
-ENV LDAP_DOMAIN="example.org"
+ENV LDAP_DOMAIN="example.net"
 ENV LDAP_ADMIN_PASSWORD="Password1."
 ```
 A. Using Docker CLI
