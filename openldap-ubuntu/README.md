@@ -82,7 +82,7 @@ Run the container
    drussell1974/openldap-server:latest
 ```
 
-*B. Using Docker Compose*
+*Option 2: Using Docker Compose*
 
 1. Create or edit the .env 
 
