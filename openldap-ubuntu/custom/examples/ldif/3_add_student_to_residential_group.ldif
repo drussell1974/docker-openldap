@@ -1,4 +1,4 @@
-dn: uid=student-10001,ou=students,dc=daverussell,dc=co,dc=uk
+dn: uid=student-10001,ou=students,dc=example,dc=net
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount

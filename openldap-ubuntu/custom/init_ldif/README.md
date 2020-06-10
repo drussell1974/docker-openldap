@@ -1,7 +1,7 @@
 Container run ldif files
 ========================
 
-Place a init.ldif file in the /custom/init directory. This will be run when the container is run.
+Place init.ldif file in the /custom/init directory. This will be run when the container is run.
 
 The docker-entrypoint.sh script will run ldap these files (defaulting init/init.ldif)
 

@@ -1,14 +1,20 @@
+
+# TODO: Read ENV LDAP_ADMIN_PASSWORD, LDAP_UNSAFE_SELFWRITE_ACL, LDAP_PURGE_DATABASE, LDAP_DOMAIN, LDAP_PPOLICY_SCHEMA_NEEDS_UPDATE, LDAP_INVALID_CONFIG, LDAP_MOVE_OLD_DATABASE, LDAP_BACK_END, LDAP_ORGANISATION_NAME, LDAP_BACKUP_DIR, LDAP_NO_CONFIGURATION, LDAP_DUMP_DATABASE, 
+
 version: "3"
 services:
         ldapserver:
                 build: "."
                 image: drussell1974/openldap
                 environment:
-                        - LDAP_ADMIN_USER=cn=admin
-                        - LDAP_ADMIN_PASSWORD=<PASSWORD>
-                        - LDAP_BASE_DN=dc=daverussell,dc=co,dc=uk
-                        - LDAP_INIT_DIR=init
-                        - LDAP_INIT_FILE=init.ldif
+                        - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
+                        - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-Password1.}
+                        - LDAP_DOMAIN=${LDAP_DOMAIN:-example.net}
+                        - LDAP_BASE_DN=${LDAP_BASE_DN:-dc=example,dc=net}
+                        - LDAP_INIT_DIR=${LDAP_INIT_DIR:-init_ldif}
+                        - LDAP_INIT_FILE=${LDAP_INIT_FILE:-init.ldif}
+                        - LDAP_ORGANIZATION_NAME=${LDAP_ORGANIZATION_NAME:-Example Net}
+                        - LDAP_BACKUP_DIR=${LDAP_BACKUP_DIR:-examplenet}
                 ports:
                         - 389:389
                         - 636:636

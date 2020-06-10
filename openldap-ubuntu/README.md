@@ -7,31 +7,19 @@ Building the image
 
 1. Enter the LDAP Server information into the slapd-debconf.dat
 
-> vim slapd-defconf.data
+> vim Dockerfile
 
 ```
-slapd slapd/password1 password <password>
-slapd slapd/internal/adminpw password <password>
-slapd slapd/internal/generated_adminpw password <password>
-slapd slapd/password2 password <password>
-slapd slapd/unsafe_selfwrite_acl note
-slapd slapd/purge_database boolean false
-slapd slapd/domain string daverussell.co.uk
-slapd slapd/ppolicy_schema_needs_update select abort installation
-slapd slapd/invalid_config boolean true
-slapd slapd/move_old_database boolean true
-slapd slapd/backend select MDB
-slapd shared/organization string Dave Russell Web
-slapd slapd/dump_database_destdir string /var/backups/slapd-daverussell
-slapd slapd/no_configuration boolean false
-slapd slapd/dump_database select when needed
+MAINTAINER Jane Doe, jdoe@example.net
 
+ENV LDAP_ORGANIZATION_NAME="Example Net"
+ENV LDAP_DOMAIN="example.org"
+ENV LDAP_ADMIN_PASSWORD="Password1."
 ```
 
 2. Save and close
 
-
-2. From this directory containing the Dockerfile build the image 
+3. From this directory containing the Dockerfile build the image 
  
 > docker build -t openldap-server:latest .
 
@@ -56,31 +44,31 @@ Running the container open the server
 
 > docker pull drussell1974/openldap
 
-> sudo docker run -itd -p 389:389 --hostname ldap.daverusell.co.uk drussell1974/openldap-server:latest
+> sudo docker run -itd -p 389:389 --hostname ldap.example.net drussell1974/openldap-server:latest
 
 3. Test OpenLDAP is running (where dc is your domain)
 
-> ldapsearch -x -b dc=daverussell,dc=co,dc=uk
+> ldapsearch -x -b dc=example,dc=net
 
 ```
 # extended LDIF
 #
 # LDAPv3
-# base <dc=daverussell,dc=co,dc=uk> with scope subtree
+# base <dc=example,dc=net> with scope subtree
 # filter: (objectclass=*)
 # requesting: ALL
 #
 
-# daverussell.co.uk
-dn: dc=daverussell,dc=co,dc=uk
+# example
+dn: dc=example,dc=net
 objectClass: top
 objectClass: dcObject
 objectClass: organization
-o: Dave Russell Ltd
-dc: daverussell
+o: Example Net
+dc: example
 
-# admin, daverussell.co.uk
-dn: cn=admin,dc=daverussell,dc=co,dc=uk
+# admin, example.net
+dn: cn=admin,dc=example,dc=net
 objectClass: simpleSecurityObject
 objectClass: organizationalRole
 cn: admin
