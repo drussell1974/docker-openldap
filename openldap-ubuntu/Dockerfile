@@ -19,13 +19,6 @@ WORKDIR /usr/openldap/install
 ADD slapd-debconf.sh .
 RUN sh -c /usr/openldap/install/slapd-debconf.sh
 
-## get setting for installing slapd from config file, set selections, then install slapd in noninteractive mode
-#COPY slapd-debconf.dat .
-#RUN debconf-set-selections slapd-debconf.dat && cat slapd-debconf.dat | debconf-set-selections
-#RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y slapd ldap-utils
-## show installation parameter output for debugging
-#RUN debconf-show slapd
-
 # create volumes for ldap cofiguration, ldap data and certificates ssh
 # copy sldapd-debconf.dat file and custom folder to install folder
 #ADD slapd-debconf.dat .
