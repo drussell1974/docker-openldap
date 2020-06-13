@@ -4,3 +4,5 @@
 *.csr
 *.key
 *.srl
+*.log
+node_modules/
