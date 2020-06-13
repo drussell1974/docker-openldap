@@ -11,7 +11,7 @@ Building the image
  
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
 
-> gunzip -xzvf https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
+> tar -xzvf https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
 
 - Option 2: Download individual files
 
