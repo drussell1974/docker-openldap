@@ -1,4 +1,3 @@
-
 dn: ou=auto.master,dc=daverussell,dc=co,dc=uk
 objectClass: top
 objectClass: automountMap
