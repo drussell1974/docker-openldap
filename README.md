@@ -13,7 +13,7 @@ Building the image
 
 > gunzip -xzvf https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
 
-- Option 2: Down
+- Option 2: Download individual files
 
 > mkdir open-ldapserver
 
