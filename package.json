@@ -7,6 +7,6 @@
   "license": "MIT",
   "repository": "https://github.com/drussell1974/docker-openldap",
   "scripts" : {
-	  "build":"gzip -c docker-compose.yml openldap-ubuntu/Dockerfile openldap-ubuntu/docker-entrypoint.sh openldap-ubuntu/slapd-debconf.sh > docker-openldap.build.gz"
+	  "build":"tar --exclude-from=.gitignore -czvf  openldap-server.tar.gz docker-compose.yml openldap-ubuntu/Dockerfile openldap-ubuntu/docker-entrypoint.sh openldap-ubuntu/slapd-debconf.sh openldap-ubuntu/.env.example openldap-ubuntu/custom/init_ldif/init.ldif openldap-ubuntu/custom/data/ openldap-ubuntu/custom/cert/"
   }
 }
