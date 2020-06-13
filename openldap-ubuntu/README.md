@@ -21,6 +21,12 @@ Building the image
 - Download slapd-debconf.sh
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/slapd-debconf.sh
 
+- Download autofs-ldap.ldif
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/autofs-ldap.ldif
+
+- Download environment variables example
+> wget wget https://raw.githubusercontent.com/drussell1974/docker-openldap/v0.0.4/openldap-ubuntu/.env.example
+
 2. Ensure the sh files are executable
 
 > chmod 755 docker-entrypoint.sh
