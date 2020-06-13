@@ -6,11 +6,12 @@ MAINTAINER Dave Russell, dave@daverussell.co.uk
 ENV LDAP_ORGANIZATION_NAME="Example Net."
 ENV LDAP_DOMAIN="example.net"
 ENV LDAP_ADMIN_PASSWORD="Password1."
+ENV LDAP_NFS_SERVER_IPADDR="192.168.1.120"
 
 # INSTALL OpenLDAP FROM DEBCONF FILE
 
 # apt-utils is required for the debconf
-RUN apt-get update && apt-get install -y apt-utils
+RUN apt-get update && apt-get install -y apt-utils autofs autofs-ldap
 
 # create a working directory
 WORKDIR /usr/openldap/install
@@ -18,6 +19,9 @@ WORKDIR /usr/openldap/install
 # installing slapd from config file, set selections, then install slapd in noninteractive mode
 ADD slapd-debconf.sh .
 RUN sh -c /usr/openldap/install/slapd-debconf.sh
+
+# Added autoconf to the LDAP directory
+ADD autofs-ldap.ldif .
 
 # create volumes for ldap cofiguration, ldap data and certificates ssh
 # copy sldapd-debconf.dat file and custom folder to install folder
@@ -29,7 +33,7 @@ ADD custom .
 ### - place ldif files to be executed when running container ###
 ### - location for data files to be persisted when running container ###
 ### do not change any data in the volume after this line ###
-VOLUME ["/usr/openldap/install/init", "/usr/openldap/install/data"]
+VOLUME ["/usr/openldap/install/init/ldif", "/usr/openldap/install/data"]
 
 # start service when container starts
 COPY docker-entrypoint.sh .

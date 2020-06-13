@@ -38,7 +38,11 @@ MAINTAINER Jane Doe, jdoe@example.net
 
 ENV LDAP_ORGANIZATION_NAME="Example Net"
 ENV LDAP_DOMAIN="example.net"
+<<<<<<< HEAD
 ENV LDAP_ADMIN_PASSWORD=<PASSWORD>
+=======
+ENV LDAP_ADMIN_PASSWORD="Password1."
+>>>>>>> development
 ```
 Build configuration
 -------------------
