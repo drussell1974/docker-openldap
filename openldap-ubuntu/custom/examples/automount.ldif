@@ -1,0 +1,33 @@
+# automountMaps
+
+dn: ou=auto.master,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.master
+
+dn: ou=auto.misc,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.misc
+
+dn: ou=auto.home,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.home
+
+# automounts
+
+dn: cn=/home,ou=auto.master,dc=example,dc=net
+objectClass: automount
+automountInformation: ldap:ou=auto.home,dc=example,dc=net
+cn: /home
+
+dn: cn=/public,ou=auto.master,dc=example,dc=net
+objectClass: automount
+automountInformation: ldap:ou=auto.misc,dc=example,dc=net
+cn: /public
+
+dn: cn=sample,ou=auto.home,dc=example,dc=net
+objectClass: automount
+automountInformation: 0.0.0.0:/home/sample
+cn: sample

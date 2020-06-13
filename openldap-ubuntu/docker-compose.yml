@@ -11,6 +11,8 @@ services:
                         - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-Password1.}
                         - LDAP_DOMAIN=${LDAP_DOMAIN:-example.net}
                         - LDAP_BASE_DN=${LDAP_BASE_DN:-dc=example,dc=net}
+                        - LDAP_INIT=${LDAP_INIT:-false}
+                        - LDAP_INIT_BOOTSTRAP=${LDAP_INIT_BOOTSTRAP:-false}
                         - LDAP_INIT_DIR=${LDAP_INIT_DIR:-init_ldif}
                         - LDAP_INIT_FILE=${LDAP_INIT_FILE:-init.ldif}
                         - LDAP_ORGANIZATION_NAME=${LDAP_ORGANIZATION_NAME:-Example Net}
