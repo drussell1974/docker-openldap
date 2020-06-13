@@ -1,12 +1,6 @@
 FROM ubuntu
 MAINTAINER Dave Russell, dave@daverussell.co.uk
 
-# TODO: Read ENV LDAP_ADMIN_PASSWORD, LDAP_UNSAFE_SELFWRITE_ACL, LDAP_PURGE_DATABASE, LDAP_DOMAIN, LDAP_PPOLICY_SCHEMA_NEEDS_UPDATE, LDAP_INVALID_CONFIG, LDAP_MOVE_OLD_DATABASE, LDAP_BACK_END, LDAP_ORGANISATION_NAME, LDAP_BACKUP_DIR, LDAP_NO_CONFIGURATION, LDAP_DUMP_DATABASE, 
-
-ENV LDAP_ORGANIZATION_NAME="Example.Net"
-ENV LDAP_DOMAIN=e"xample.net"
-ENV LDAP_ADMIN_PASSWORD="admin"
-
 # INSTALL OpenLDAP FROM DEBCONF FILE
 
 # apt-utils is required for the debconf
@@ -18,14 +12,13 @@ WORKDIR /usr/openldap/install
 
 # installing slapd from config file, set selections, then install slapd in noninteractive mode
 ADD slapd-debconf.sh .
-RUN sh -c /usr/openldap/install/slapd-debconf.sh
+#RUN sh -c /usr/openldap/install/slapd-debconf.sh
 
 # Added autoconf to the LDAP directory
 ADD autofs-ldap.ldif .
 
 # create volumes for ldap cofiguration, ldap data and certificates ssh
 # copy sldapd-debconf.dat file and custom folder to install folder
-#ADD slapd-debconf.dat .
 ADD custom .
 
 # Add volume for initialised ldif file and persisted data
