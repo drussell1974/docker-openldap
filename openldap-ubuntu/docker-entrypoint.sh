@@ -30,9 +30,6 @@ _install_slapd() {
 	echo "docker-entrypoing.sh: debconf-set-selection file"
 	debconf-set-selections slapd-debconf.dat
 
-	#echo "file | debconf-set-selection"
-	#cat slapd-debconf.dat | debconf-set-selections
-
 	export DEBIAN_FRONTEND=noninteractive && apt-get install -y slapd ldap-utils
 
 	# show installation parameter output for debugging

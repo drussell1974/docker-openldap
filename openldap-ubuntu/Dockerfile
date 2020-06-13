@@ -12,7 +12,6 @@ WORKDIR /usr/openldap/install
 
 # installing slapd from config file, set selections, then install slapd in noninteractive mode
 ADD slapd-debconf.sh .
-#RUN sh -c /usr/openldap/install/slapd-debconf.sh
 
 # Added autoconf to the LDAP directory
 ADD autofs-ldap.ldif .
