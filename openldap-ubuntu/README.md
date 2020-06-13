@@ -38,12 +38,9 @@ MAINTAINER Jane Doe, jdoe@example.net
 
 ENV LDAP_ORGANIZATION_NAME="Example Net"
 ENV LDAP_DOMAIN="example.net"
-<<<<<<< HEAD
 ENV LDAP_ADMIN_PASSWORD=<PASSWORD>
-=======
-ENV LDAP_ADMIN_PASSWORD="Password1."
->>>>>>> development
 ```
+
 Build configuration
 -------------------
 
@@ -113,12 +110,19 @@ Run the container
 
 1. Create or edit the .env 
 
+LDAP_INIT - If true, ldapadd from LDAP_INIT_DIR / LDAP_INIT_FILE
+LDAP_INIT_BOOTSTRAP - If true, replace dc=example,dc=net with your base dn LDAP_BASE_NI in the LDAP_INIT_FILE
+
 ```
 LDAP_DOMAIN=example.net
 LDAP_BASE_DN=dc=example,dc=net
 LDAP_ORGANIZATION_NAME=Example Net
 LDAP_ADMIN_USER=cn=admin
 LDAP_ADMIN_PASSWORD=<PASSWORD>
+LDAP_INIT=false
+LDAP_INIT_BOOTSTRAP=false
+LDAP_INIT_DIR=my_init
+LDAP_INIT_FILE=my_init.ldif
 ```
 
 > docker-compose up
