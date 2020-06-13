@@ -36,7 +36,7 @@ _ldapadd_init_ldif() {
 				# replace base dn if bootstrapped
 				
 				if [ ${LDAP_INIT_BOOTSTRAP:-false} = true ]; then
-					echo "docker-entrypoint.sh: bootstrap ${}/${} with ${LDAP_BASE_DN}\n"
+					echo "docker-entrypoint.sh: bootstrap ${LDAP_INIT_DIR}/${LDAP_INIT_FILE} with ${LDAP_BASE_DN}\n"
 					sed -i "s/dc=example,dc=net/${LDAP_BASE_DN}/" ${LDAP_INIT_DIR}/${LDAP_INIT_FILE}
 				fi
 
