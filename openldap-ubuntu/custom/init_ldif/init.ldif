@@ -49,9 +49,9 @@ objectClass: posixGroup
 cn: netadmins
 gidNumber: 5001
 
-dn: cn=developers,ou=employees,dc=example,dc=net
+dn: cn=marketing,ou=employees,dc=example,dc=net
 objectClass: posixGroup
-cn: developers
+cn: marketing
 gidNumber: 5002
 
 dn: cn=hr,ou=employees,dc=example,dc=net
@@ -59,7 +59,23 @@ objectClass: posixGroup
 cn: hr
 gidNumber: 5003
 
-dn: cn=finance,ou=employees,dc=example,dc=net
+dn: cn=tutors,ou=employees,dc=example,dc=net
 objectClass: posixGroup
-cn: finance
+cn: tutors
 gidNumber: 5004
+
+dn: cn=higher-education,ou=students,dc=example,dc=net
+objectClass: posixGroup
+cn: higher-education
+gidNumber: 5005
+
+dn: cn=further-education,ou=students,dc=example,dc=net
+objectClass: posixGroup
+cn: further-education
+gidNumber: 5006
+
+dn: cn=apprentices,ou=students,dc=example,dc=net
+objectClass: posixGroup
+cn: apprentices
+gidNumber: 5007
+
