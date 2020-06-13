@@ -10,6 +10,7 @@ ENV LDAP_ADMIN_PASSWORD="Admin1."
 # INSTALL OpenLDAP FROM DEBCONF FILE
 
 # apt-utils is required for the debconf
+
 RUN apt-get update && apt-get install -y apt-utils autofs autofs-ldap
 
 # create a working directory
