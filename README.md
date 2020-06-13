@@ -5,15 +5,25 @@ A basic LDAPServer installation with Docker. I've created it just for fun.
 Building the image
 ------------------
 ------------------
-1. Create a build folder and download the build files to your docker host server
+1. Download the build files to your docker host server
 
-> mkdir -p my_ldap_server
+- Option 1: Download all file from openldap-server.tar.gz
+ 
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
+
+> gunzip -xzvf https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
+
+- Option 2: Down
+
+> mkdir open-ldapserver
+
+> cd open-ldapserver
+
+- Download docker-compose.yml (Docker Compose only)
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/docker-compose.yml
 
 - Download Dockerfile
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/Dockerfile
-
-- Download docker-compose.yml (Docker Compose only)
-> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/docker-compose.yml
 
 - Download docker-entrypoint.sh
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/docker-entrypoint.sh
@@ -25,7 +35,7 @@ Building the image
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/autofs-ldap.ldif
 
 - Download environment variables example
-> wget wget https://raw.githubusercontent.com/drussell1974/docker-openldap/v0.0.4/openldap-ubuntu/.env.example
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/.env.example
 
 2. Ensure the sh files are executable
 
