@@ -4,7 +4,7 @@
 version: "3"
 services:
         ldapserver:
-                build: "."
+                build: "./openldap-ubuntu"
                 image: drussell1974/openldap
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
