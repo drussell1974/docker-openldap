@@ -1,0 +1,18 @@
+dn: cn=/home,ou=auto.master,dc=example,dc=net
+changetype: delete
+
+dn: cn=/public,ou=auto.master,dc=example,dc=net
+changetype: delete
+
+dn: cn=sample,ou=auto.home,dc=example,dc=net
+changetype: delete
+
+
+dn: ou=auto.master,dc=example,dc=net
+changetype: delete
+
+dn: ou=auto.misc,dc=example,dc=net
+changetype: delete
+
+dn: ou=auto.home,dc=example,dc=net
+changetype: delete

@@ -5,12 +5,12 @@ objectClass: top
 objectClass: automountMap
 ou: auto.master
 
-dn: ou=auto.misc,dc=example,dc=net
+dn: ou=auto.misc,ou=auto.master,dc=example,dc=net
 objectClass: top
 objectClass: automountMap
 ou: auto.misc
 
-dn: ou=auto.home,dc=example,dc=net
+dn: ou=auto.home,ou=auto.master,dc=example,dc=net
 objectClass: top
 objectClass: automountMap
 ou: auto.home
@@ -26,11 +26,6 @@ dn: cn=/public,ou=auto.master,dc=example,dc=net
 objectClass: automount
 automountInformation: ldap:ou=auto.misc,dc=example,dc=net
 cn: /public
-
-dn: cn=sample,ou=auto.home,dc=example,dc=net
-objectClass: automount
-automountInformation: 0.0.0.0:/home/sample
-cn: sample
 
 # organisational units
 
@@ -62,9 +57,10 @@ gidNumber: 5003
 # Teachers
 
 dn: uid=prof.xavier,ou=Employees,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
 uid: prof.xavier
 sn: Xavier
 givenName: Charles Francis
@@ -76,10 +72,16 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/cxavier
 
+dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
+objectClass: automount
+automountInformation: 0.0.0.0:/home/cxavier
+cn: prof.xavier
+
 dn: uid=wolverine,ou=Employees,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
 uid: wolverine
 sn: Howlett
 givenName: James
@@ -91,10 +93,16 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/wolverine
 
+dn: cn=wolverine,ou=auto.home,ou=auto.master,dc=xavier,dc=institute
+objectClass: automount
+automountInformation: 0.0.0.0:/home/wolverine
+cn: wolverine
+
 dn: uid=storm,ou=Employees,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
 uid: storm
 sn: Munroe
 givenName: Ororo
@@ -124,9 +132,10 @@ homeDirectory: /home/rogue
 # Students
 
 dn: uid=gentle,ou=students,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
 uid: 10001
 sn: Abidemi
 givenName: Nezhno
@@ -139,9 +148,10 @@ loginShell: /bin/bash
 homeDirectory: /home/10001
 
 dn: uid=rockslide,ou=students,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
 uid: rockslide
 sn: Vaccarro
 givenName: Santo
@@ -154,9 +164,10 @@ loginShell: /bin/bash
 homeDirectory: /home/10002
 
 dn: uid=ink,ou=students,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
-objectClass: shadowAccount
 uid: ink
 sn: Gitter
 givenName: Eric
