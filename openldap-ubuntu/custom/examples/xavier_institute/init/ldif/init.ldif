@@ -66,7 +66,7 @@ gidNumber: 5003
 
 # Teachers
 
-dn: uid=prof.xavier,ou=Employees,dc=example,dc=net
+dn: uid=prof.xavier,ou=employees,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
@@ -82,7 +82,7 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/cxavier
 
-dn: uid=wolverine,ou=Employees,dc=example,dc=net
+dn: uid=wolverine,ou=employees,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
@@ -98,7 +98,7 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/wolverine
 
-dn: uid=storm,ou=Employees,dc=example,dc=net
+dn: uid=storm,ou=employees,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
@@ -114,7 +114,7 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/storm
 
-dn: uid=rogue,ou=Employees,dc=example,dc=net
+dn: uid=rogue,ou=employees,dc=example,dc=net
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
