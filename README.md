@@ -218,12 +218,43 @@ result: 0 Success
 Automating the build on hub.docker.com/drussell1974/openldap through github.com/drussell1974/docker-openldap
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
-1. Merge and push the build to the master branch on github.com/drussell/docker-openldap
 
-- Develop the changes on development branch. Once you've checked in your changes to development.
+The git.hub repository is linked to hub.docker.com/drussell1974/openldap
 
-> git checkout master
+Before triggering a release push the file tar.gz
 
-> git merge development
+> yarn build
 
-> git push
+> git commit -am "build" && git push
+
+Releases
+--------
+
+Tags pushed to the repository will create docker tag e.g. release-v1.0.0-rc
+
+1. Show latest tags
+
+> git fetch
+
+> git tag
+
+2. Create a new tag
+
+> git tag v1.0.0-rc
+
+> git push origin v1.0.0-rc
+
+3. On the docker server, change the image value on docker-compose.yaml
+
+> vim docker-compose.yml
+
+```
+image: drussell1974/openldap:release-v1.0.0-rc
+```
+
+Latest
+------
+
+Changes push/merged with master will create tag latest
+
+Merge with master and push the build to the master branch on github.com/drussell/docker-openldap
