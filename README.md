@@ -2,6 +2,44 @@ OPENLDAP SERVER
 ================
 A basic LDAPServer installation with Docker. I've created it just for fun.
 
+Quick Start
+-----------
+-----------
+
+1. Download the build files to your docker host server
+
+- Option 1: Download all file from openldap-server.tar.gz
+ 
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
+
+> tar -xzvf openldap-server.tar.gz
+
+> mv docker-compose.yml.example docker-compose.yml
+
+> mv .env.example .env
+
+2. Run the container 
+
+> docker-compose up
+
+```
+drussell1974@jtc1:~/docker/openldap-server$ sudo docker-compose up
+Recreating openldap-server_ldapserver_1 ... done
+Attaching to openldap-server_ldapserver_1
+ldapserver_1  |  * Starting OpenLDAP slapd
+ldapserver_1  |    ...done.
+ldapserver_1  | docker-entrypoint.sh: checking init_ldif/init.ldif for dc=example,dc=net
+ldapserver_1  | docker-entrypoint.sh: adding ldif to ldap directory cn=admin,dc=example,dc=net
+ldapserver_1  | adding new entry "ou=employees,dc=example,dc=net"
+```
+
+3. Test ldap directory
+
+> ldapsearch -x -b dc=xavier,dc=institute -LLL
+
+```
+```
+
 Building the image
 ------------------
 ------------------
