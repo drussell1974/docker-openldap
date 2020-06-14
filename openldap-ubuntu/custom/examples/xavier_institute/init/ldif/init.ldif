@@ -27,6 +27,16 @@ objectClass: automount
 automountInformation: ldap:ou=auto.misc,dc=example,dc=net
 cn: /public
 
+dn: cn=wolverine,ou=auto.home,ou=auto.master,dc=example,dc=net
+objectClass: automount
+automountInformation: 0.0.0.0:/home/wolverine
+cn: wolverine
+
+dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
+objectClass: automount
+automountInformation: 0.0.0.0:/home/cxavier
+cn: prof.xavier
+
 # organisational units
 
 dn: ou=employees,dc=example,dc=net
@@ -72,11 +82,6 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/cxavier
 
-dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
-objectClass: automount
-automountInformation: 0.0.0.0:/home/cxavier
-cn: prof.xavier
-
 dn: uid=wolverine,ou=Employees,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
@@ -92,11 +97,6 @@ gidNumber: 5001
 userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/wolverine
-
-dn: cn=wolverine,ou=auto.home,ou=auto.master,dc=xavier,dc=institute
-objectClass: automount
-automountInformation: 0.0.0.0:/home/wolverine
-cn: wolverine
 
 dn: uid=storm,ou=Employees,dc=example,dc=net
 objectClass: person
