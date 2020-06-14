@@ -8,7 +8,7 @@ services:
                 image: drussell1974/openldap
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
-                        - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-Password1.}
+                        - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-admin}
                         - LDAP_BACKUP_DIR=${LDAP_BACKUP_DIR:-examplenet}
                         - LDAP_BASE_DN=${LDAP_BASE_DN:-dc=example,dc=net}
                         - LDAP_DOMAIN=${LDAP_DOMAIN:-example.net}
@@ -16,7 +16,7 @@ services:
                         - LDAP_INIT_BOOTSTRAP=${LDAP_INIT_BOOTSTRAP:-false}
                         - LDAP_INIT_LDIF_PATH=${LDAP_INIT_LDIF_PATH:-init/ldif/init.ldif}
                         - LDAP_NFS_SERVER_IPADDR=${LDAP_NFS_SERVER_IPADDR}
-                        - LDAP_ORGANIZATION_NAME=${LDAP_ORGANIZATION_NAME:-Example Net}
+                        - LDAP_ORGANIZATION_NAME=${LDAP_ORGANIZATION_NAME:-Example.Net}
                 ports:
                         - 389:389
                         - 636:636
