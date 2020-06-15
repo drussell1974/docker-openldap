@@ -1,16 +1,36 @@
+dn: ou=auto.master,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.master
+
+#dn: ou=auto.misc,dc=example,dc=net
+#objectClass: top
+#objectClass: automountMap
+#ou: auto.misc
+
+#dn: ou=auto.home,dc=example,dc=net
+#objectClass: top
+#objectClass: automountMap
+#ou: auto.home
+
 # automounts
 
 dn: cn=/home,ou=auto.master,dc=example,dc=net
 objectClass: automount
-automountInformation: ldap:ou=auto.home,dc=example,dc=net
+automountInformation: ldap 0.0.0.0:ou=auto.home,dc=example,dc=net
 cn: /home
 
-dn: cn=/public,ou=auto.master,dc=example,dc=net
-objectClass: automount
-automountInformation: ldap:ou=auto.misc,dc=example,dc=net
-cn: /public
+dn: ou=auto.home,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.home
 
-dn: cn=wolverine,ou=auto.home,ou=auto.master,dc=example,dc=net
+#dn: cn=/public,ou=auto.master,dc=example,dc=net
+#objectClass: automount
+#automountInformation: ldap 0.0.0.0:ou=auto.misc,dc=example,dc=net
+#cn: /public
+
+dn: cn=wolverine,ou=auto.home,dc=example,dc=net
 objectClass: automount
 automountInformation: 0.0.0.0:/home/wolverine
 cn: wolverine
@@ -20,3 +40,8 @@ objectClass: automount
 automountInformation: 0.0.0.0:/home/cxavier
 cn: prof.xavier
 
+~                                                                                                 
+~                                                                                                 
+~                                                                                                 
+~                                                                                                 
+~                        

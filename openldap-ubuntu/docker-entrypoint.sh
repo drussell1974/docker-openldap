@@ -55,61 +55,38 @@ _ldapadd_autofs_ldif() {
 #| run the init.ldif file to populate the ldap directory |#
 #---------------------------------------------------------#
 _ldapadd_init_ldif() {
-
-	# 1. check if LDAP_INIT true
-
-	# 2. check init directory and file variables have set
-	
-	# 3. check init directory and init file exists
-
-	# 4. check the base dn, admin user and admin password has been set
-	
-	# 5. if LDAP_INIT_BOOTSTRAP true then replace dc=example,dc=net with LDAP_BASE_DN
-	
-	# 6. replace IP Address of NFS Server in automountInformation
-
-	# 7. add ldap directory - command should be format e.g. ldapadd -w <PASSWORD> -D "cn=admin,dc=example,dc=net" -f init/init.ldif
-
-	echo "docker-entrypoint.sh: LDAP_INIT=${LDAP_INIT} LDAP_INIT_BOOTSTRAP=${LDAP_INIT_BOOTSTRAP}\n"
-
-	if [ ${LDAP_INIT:-false} = true ] ; then
 		
-		echo "docker-entrypoint.sh: initialising ldap directory ${LDAP_BASE_DN} from files ${LDAP_INIT_LDIF_PATH:=init/ldif/init.ldif}\n"
-		
-		#if [ ${LDAP_BASE_DN:-$LDAP_BASE_DN} -a ${LDAP_ADMIN_USER:-$LDAP_ADMIN_USER} -a ${LDAP_ADMIN_PASSWORD:-$LDAP_ADMIN_PASSWORD} ]; then
-			
-			for file_path in ${LDAP_INIT_LDIF_PATH}; do
-				
-				echo "docker-entrypoint.sh: checking ${file_path} exists\n"
-				
-				if test -f ${file_path}; then
+  echo "docker-entrypoint.sh: LDAP_INIT=${LDAP_INIT} LDAP_INIT_BOOTSTRAP=${LDAP_INIT_BOOTSTRAP}\n"
 
-					
-					if [ ${LDAP_INIT_BOOTSTRAP:-false} = true ]; then
-						# replace base dn if bootstrapped
-						echo "docker-entrypoint.sh: bootstrapping\n"
-						sed -i "s/dc=example,dc=net/${LDAP_BASE_DN}/" ${file_path}
-					fi
+        if [ ${LDAP_INIT:-false} = true ] ; then
 
-					# replace automountInformation
-					echo "docker-entrypoint.sh: apply nfs automount ip address with ${LDAP_NFS_SERVER_IPADDR} \n"
-					
-					sed -i "s/automountInformation: 0.0.0.0/automountInformation:${LDAP_NFS_SERVER_IPADDR}/" ${LDAP_INIT_LDIF_PATH}
+                echo "docker-entrypoint.sh: initialising ldap directory ${LDAP_BASE_DN} from files ${LDAP_INIT_LDIF_PATH:=init/ldif/init.ldif}\n"
 
-					# add data to ldap directory
-					echo "docker-entrypoint.sh: adding file to ldap directory\n"
-					
-					ldapadd -w "${LDAP_ADMIN_PASSWORD}" -D "${LDAP_ADMIN_USER},${LDAP_BASE_DN}" -f $file_path
-				else
-					echo "\033[31mdocker-entrypoint.sh: directory (${file_path} for ${LDAP_BASE_DN} does not exist\e[0\n"
-				fi
-			done
-		
-		#else
-		#	echo "docker-entrypoint.sh: Cannot execute command 'ldapadd -w ${LDAP_ADMIN_PASSWORD} -D ${LDAP_ADMIN_USER},${LDAP_BASE_DN} -f ${LDAP_INIT_LDIF_PATH}', as LDAP_BASE_DN, LDAP_ADMIN_USER or LDAP_ADMIN_PASSWORD not set.\n"
-		#fi
+                for file_path in ${LDAP_INIT_LDIF_PATH}; do
+
+                        echo "docker-entrypoint.sh: checking ${file_path} exists\n"
+
+                        if test -f ${file_path}; then
+
+                                if [ ${LDAP_INIT_BOOTSTRAP:-false} = true ]; then 
+                                        # replace base dn if bootstrapped
+                                        echo "docker-entrypoint.sh: bootstrapping\n"
+                                        sed -i "s/dc=example,dc=net/${LDAP_BASE_DN}/" ${file_path}
+                                fi
+
+                                # replace automountInformation
+                                echo "docker-entrypoint.sh: apply nfs automount ip address with ${LDAP_NFS_SERVER_IPADDR} \n"                           
+                                sed -i "s/0.0.0.0/${LDAP_NFS_SERVER_IPADDR}/" ${LDAP_INIT_LDIF_PATH}
+
+                                # add data to ldap directory
+                                echo "docker-entrypoint.sh: adding file to ldap directory\n"
+
+                                ldapadd -w "${LDAP_ADMIN_PASSWORD}" -D "${LDAP_ADMIN_USER},${LDAP_BASE_DN}" -f $file_path
+                        else
+                                echo "docker-entrypoint.sh: directory (${file_path} for ${LDAP_BASE_DN} does not exist\n"
+                        fi
+                done
 	fi
-}
 
 #--------------------------------------------------#
 #| THE MAIN FUNCTION EXECUTE WHEN THE FILE IS RUN |#
