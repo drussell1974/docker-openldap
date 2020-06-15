@@ -1,4 +1,4 @@
- automounts
+# automounts
 
 dn: cn=/home,ou=auto.master,dc=example,dc=net
 objectClass: automount

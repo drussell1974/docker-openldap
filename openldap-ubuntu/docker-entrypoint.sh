@@ -101,7 +101,7 @@ _ldapadd_init_ldif() {
 					
 					ldapadd -w "${LDAP_ADMIN_PASSWORD}" -D "${LDAP_ADMIN_USER},${LDAP_BASE_DN}" -f $file_path
 				else
-					echo "docker-entrypoint.sh: directory (${file_path} for ${LDAP_BASE_DN} does not exist\n"
+					echo "\033[31mdocker-entrypoint.sh: directory (${file_path} for ${LDAP_BASE_DN} does not exist\e[0\n"
 				fi
 			done
 		
