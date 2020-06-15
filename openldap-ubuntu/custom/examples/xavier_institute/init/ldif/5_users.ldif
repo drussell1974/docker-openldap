@@ -1,0 +1,113 @@
+dn: uid=prof.xavier,ou=employees,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: prof.xavier
+sn: Xavier
+givenName: Charles Francis
+cn: Professor Charles Xavier
+displayName: Professor Xavier
+uidNumber: 1001
+gidNumber: 5001
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/cxavier
+
+dn: uid=wolverine,ou=employees,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: wolverine
+sn: Howlett
+givenName: James
+cn: wolverine
+displayName: Wolverine
+uidNumber: 1002
+gidNumber: 5001
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/wolverine
+
+dn: uid=storm,ou=employees,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: storm
+sn: Munroe
+givenName: Ororo
+cn: storm
+displayName: Storm
+uidNumber: 1003
+gidNumber: 5001
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/storm
+
+dn: uid=rogue,ou=employees,dc=example,dc=net
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: rogue
+sn: Lebeau
+givenName: Anna-Marie
+cn: rogue
+displayName: Rogue
+uidNumber: 1004
+gidNumber: 5001
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/rogue
+
+# Students
+
+dn: uid=gentle,ou=students,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: 10001
+sn: Abidemi
+givenName: Nezhno
+cn: gentle
+displayName: Gentle
+uidNumber: 10001
+gidNumber: 5002
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/10001
+
+dn: uid=rockslide,ou=students,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: rockslide
+sn: Vaccarro
+givenName: Santo
+cn: rockslide
+displayName: Rockslide
+uidNumber: 10002
+gidNumber: 5002
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/10002
+
+dn: uid=ink,ou=students,dc=example,dc=net
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: posixAccount
+uid: ink
+sn: Gitter
+givenName: Eric
+cn: ink
+displayName: Ink
+uidNumber: 10003
+gidNumber: 5002
+userPassword: password
+loginShell: /bin/bash
+homeDirectory: /home/10003
+

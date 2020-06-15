@@ -1,0 +1,17 @@
+# automountMaps
+
+dn: ou=auto.master,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.master
+
+dn: ou=auto.misc,ou=auto.master,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.misc
+
+dn: ou=auto.home,ou=auto.master,dc=example,dc=net
+objectClass: top
+objectClass: automountMap
+ou: auto.home
+

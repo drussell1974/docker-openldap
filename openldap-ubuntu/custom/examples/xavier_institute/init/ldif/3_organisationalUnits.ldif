@@ -1,0 +1,10 @@
+# organisational units
+
+dn: ou=employees,dc=example,dc=net
+objectClass: organizationalUnit
+ou: employees
+
+dn: ou=students,dc=example,dc=net
+objectClass: organizationalUnit
+ou: students
+

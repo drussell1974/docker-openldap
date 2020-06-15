@@ -1,0 +1,3 @@
+dn: ou=employees,dc=xavier,dc=institute
+objectClass: organizationalUnit
+ou: employees

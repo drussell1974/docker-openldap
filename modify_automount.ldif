@@ -1,0 +1,5 @@
+dn: cn=wolverine,ou=auto.home,ou=auto.master,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid nfs_server:/home/wolverine
+

@@ -73,32 +73,41 @@ _ldapadd_init_ldif() {
 	echo "docker-entrypoint.sh: LDAP_INIT=${LDAP_INIT} LDAP_INIT_BOOTSTRAP=${LDAP_INIT_BOOTSTRAP}\n"
 
 	if [ ${LDAP_INIT:-false} = true ] ; then
-		echo "docker-entrypoint.sh: checking ${LDAP_INIT_LDIF_PATH:=init/ldif/init.ldif} for ${LDAP_ADMIN_USER},${LDAP_BASE_DN}\n"
-		if test -f ${LDAP_INIT_LDIF_PATH}; then
-			if [ ${LDAP_BASE_DN:-$LDAP_BASE_DN} -a ${LDAP_ADMIN_USER:-$LDAP_ADMIN_USER} -a ${LDAP_ADMIN_PASSWORD:-$LDAP_ADMIN_PASSWORD} ]; then 
-
-				# replace base dn if bootstrapped
-				
-				if [ ${LDAP_INIT_BOOTSTRAP:-false} = true ]; then
-					echo "docker-entrypoint.sh: apply bootstrap ${LDAP_INIT_LDIF_PATH} with ${LDAP_BASE_DN}\n"
-					sed -i "s/dc=example,dc=net/${LDAP_BASE_DN}/" ${LDAP_INIT_LDIF_PATH}
-				fi
-
-				echo "docker-entrypoint.sh: apply nfs automount ip address with ${LDAP_NFS_SERVER_IPADDR} \n"
-					
-				sed -i "s/automountInformation: 0.0.0.0/automountInformation:${LDAP_NFS_SERVER_IPADDR}/" ${LDAP_INIT_LDIF_PATH}
-
-				# add the record...
-			
-				echo "docker-entrypoint.sh: adding ${LDAP_INIT_LDIF_PATH} to ldap directory ${LDAP_ADMIN_USER},${LDAP_BASE_DN}\n"
-				ldapadd -w "${LDAP_ADMIN_PASSWORD}" -D "${LDAP_ADMIN_USER},${LDAP_BASE_DN}" -f ${LDAP_INIT_LDIF_PATH}
 		
-			else
-				echo "docker-entrypoint.sh: Cannot execute command 'ldapadd -w ***** -D ${LDAP_ADMIN_USER},${LDAP_BASE_DN} -f ${LDAP_INIT_LDIF_PATH}', as LDAP_BASE_DN, LDAP_ADMIN_USER or LDAP_ADMIN_PASSWORD not set.\n"
-			fi
-		else
-			echo "docker-entrypoint.sh: directory (${LDAP_INIT_LDIF_PATH} for ${LDAP_BASE_DN} does not exist\n"
-		fi
+		echo "docker-entrypoint.sh: initialising ldap directory ${LDAP_BASE_DN} from files ${LDAP_INIT_LDIF_PATH:=init/ldif/init.ldif}\n"
+		
+		#if [ ${LDAP_BASE_DN:-$LDAP_BASE_DN} -a ${LDAP_ADMIN_USER:-$LDAP_ADMIN_USER} -a ${LDAP_ADMIN_PASSWORD:-$LDAP_ADMIN_PASSWORD} ]; then
+			
+			for file_path in ${LDAP_INIT_LDIF_PATH}; do
+				
+				echo "docker-entrypoint.sh: checking ${file_path} exists\n"
+				
+				if test -f ${file_path}; then
+
+					
+					if [ ${LDAP_INIT_BOOTSTRAP:-false} = true ]; then
+						# replace base dn if bootstrapped
+						echo "docker-entrypoint.sh: apply bootstrap ${LDAP_BASE_DN} to ${file_path}\n"
+						sed -i "s/dc=example,dc=net/${LDAP_BASE_DN}/" ${file_path}
+					fi
+
+					# replace automountInformation
+					echo "docker-entrypoint.sh: apply nfs automount ip address with ${LDAP_NFS_SERVER_IPADDR} \n"
+					
+					sed -i "s/automountInformation: 0.0.0.0/automountInformation:${LDAP_NFS_SERVER_IPADDR}/" ${LDAP_INIT_LDIF_PATH}
+
+					# add data to ldap directory
+					echo "docker-entrypoint.sh: adding file to ldap directory\n"
+					
+					ldapadd -w "${LDAP_ADMIN_PASSWORD}" -D "${LDAP_ADMIN_USER},${LDAP_BASE_DN}" -f $file_path
+				else
+					echo "docker-entrypoint.sh: directory (${file_path} for ${LDAP_BASE_DN} does not exist\n"
+				fi
+			done
+		
+		#else
+		#	echo "docker-entrypoint.sh: Cannot execute command 'ldapadd -w ${LDAP_ADMIN_PASSWORD} -D ${LDAP_ADMIN_USER},${LDAP_BASE_DN} -f ${LDAP_INIT_LDIF_PATH}', as LDAP_BASE_DN, LDAP_ADMIN_USER or LDAP_ADMIN_PASSWORD not set.\n"
+		#fi
 	fi
 }
 

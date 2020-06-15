@@ -1,0 +1,5 @@
+dn: ou=students,dc=xavier,dc=institute
+objectClass: organizationalUnit
+ou: students
+
+
