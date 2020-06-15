@@ -87,6 +87,7 @@ _ldapadd_init_ldif() {
                         fi
                 done
 	fi
+}
 
 #--------------------------------------------------#
 #| THE MAIN FUNCTION EXECUTE WHEN THE FILE IS RUN |#
