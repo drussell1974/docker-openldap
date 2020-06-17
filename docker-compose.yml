@@ -30,16 +30,8 @@ services:
                         - NFS_PUBLIC_CONT=${NFS_PUBLIC_CONT}
                         - NFS_HOME_CONT=${NFS_HOME_CONT}
                 volumes:
-                        - type: bind
-                          source: /mnt/nfs_share/Public
-                          target: ${NFS_PUBLIC_CONT}
-                          volume:
-                                nocopy: true
-                        - type: bind
-                          source: /mnt/nfs_share/home
-                          target: ${NFS_HOME_CONT}
-                          volume:
-                                nocopy: true
+                        - /mnt/nfs_share/Public:${NFS_PUBLIC_CONT}
+                        - /mnt/nfs_share/home:${NFS_HOME_CONT}
                 ports:
                         - 2049:2049
 
