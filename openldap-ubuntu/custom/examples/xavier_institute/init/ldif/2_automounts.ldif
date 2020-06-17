@@ -1,4 +1,14 @@
-dn: ou=auto.master,dc=example,dc=net
+dn: ou=admin,dc=example,dc=net
+objectClass: top
+objectClass: organizationalUnit
+ou: admin
+
+dn: ou=automount,ou=admin,dc=example,dc=net
+objectClass: top
+objectClass: organizationalUnit
+ou: automount
+
+dn: ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
 objectClass: top
 objectClass: automountMap
 ou: auto.master
@@ -15,24 +25,36 @@ ou: auto.master
 
 # automounts
 
-dn: cn=/home,ou=auto.master,dc=example,dc=net
-objectClass: automount
-automountInformation: ldap 0.0.0.0:ou=auto.home,dc=example,dc=net
-cn: /home
+## home (testing)
 
-dn: ou=auto.home,dc=example,dc=net
+dn: cn=/home,ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
+objectClass: automount
+#automountInformation: ldap 0.0.0.0:ou=auto.home,dc=example,dc=net
+automountInformation: ldap:ou=auto.home,ou=automount,ou=admin,dc=example,dc=net --timeout=60 --ghost
+
+cn: /home
+dn: ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
 objectClass: top
 objectClass: automountMap
 ou: auto.home
 
+## TODO: public (just uncomment and test)
+
+#dn: cn=/public,ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
+#objectClass: automount
+#automountInformation: ldap:ou=auto.public,ou=automount,ou=admin,dc=example,dc=net --timeout=60 --ghost
+
 #dn: cn=/public,ou=auto.master,dc=example,dc=net
 #objectClass: automount
-#automountInformation: ldap 0.0.0.0:ou=auto.misc,dc=example,dc=net
+#automountInformation: ldap:ou=auto.public,ou=automount,ou=admin,dc=example,dc=net --timeout=60 --ghost
 #cn: /public
+
+# organisational users
 
 dn: cn=wolverine,ou=auto.home,dc=example,dc=net
 objectClass: automount
-automountInformation: 0.0.0.0:/home/wolverine
+#automountInformation: 0.0.0.0:/home/wolverine
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/home/wolverine
 cn: wolverine
 
 dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
@@ -40,6 +62,11 @@ objectClass: automount
 automountInformation: 0.0.0.0:/home/cxavier
 cn: prof.xavier
 
+dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
+objectClass: automount
+#automountInformation: 0.0.0.0:/home/wolverine
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/home/cxavier
+cn: prof.xavier
 ~                                                                                                 
 ~                                                                                                 
 ~                                                                                                 
