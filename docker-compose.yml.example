@@ -1,6 +1,6 @@
 
 
-version: "3"
+version: "3.2"
 services:
         ldap_server:
                 image: drussell1974/openldap:ldap-v0.0.16-alpha
@@ -41,6 +41,10 @@ services:
                         - 2049:2049
 
 
+
+NFS_IPADDR_ALLOWED=192.168.1.0/24
+NFS_HOME_CONT=/mnt/nfs_share/home
+NFS_PUBLIC_CONT=/mnt/nfs_share/public
 
 LDAP_DOMAIN=xavier.institute
 LDAP_BASE_DN=dc=xavier,dc=institute
