@@ -3,7 +3,7 @@
 version: "3.2"
 services:
         ldap_server:
-                image: drussell1974/openldap:ldap-v0.0.16-alpha
+                image: drussell1974/openldap:ldap-v0.1.1-alpha
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
                         - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-admin}
@@ -19,7 +19,7 @@ services:
                         - 389:389
                         - 636:636
         nfs_server:
-                image: drussell1974/openldap:nfs-v0.0.17-alpha
+                image: drussell1974/openldap:nfs-v0.1.1-alpha
                 external_links:
                         - ldap_server
                 environment:
@@ -31,50 +31,5 @@ services:
                         - /mnt/nfs_share/home:${NFS_HOME_CONT}
                 ports:
                         - 2049:2049
-
-
-
-NFS_IPADDR_ALLOWED=192.168.1.0/24
-NFS_HOME_CONT=/mnt/nfs_share/home
-NFS_PUBLIC_CONT=/mnt/nfs_share/public
-
-LDAP_DOMAIN=xavier.institute
-LDAP_BASE_DN=dc=xavier,dc=institute
-LDAP_ORGANISATION_NAME="Xaviers School for Gifted Youngsters"
-LDAP_ADMIN_USER=cn=admin
-LDAP_ADMIN_PASSWORD=admin
-LDAP_NFS_SERVER_IPADDR=192.168.1.120
-LDAP_INIT=true
-LDAP_INIT_BOOTSTRAP=true
-LDAP_INIT_LDIF_PATH=examples/xavier_institute/init/ldif/1_automountMaps.ldif examples/xavier_institute/init/ldif/2_automounts.ldif examples/xavier_institute/init/ldif/3_organisationalUnits.ldif examples/xavier_institute/init/ldif/4_groups.ldif examples/xavier_institute/init/ldif/5_users.ldif
-#LDAP_UNSAFE_SELFWRITE_ACL
-#LDAP_PURGE_DATABASE
-#LDAP_PPOLICY_SCHEMA_NEEDS_UPDATE
-#LDAP_INVALID_CONFIG, 
-#LDAP_MOVE_OLD_DATABASE, 
-#LDAP_BACK_END, 
-#LDAP_NO_CONFIGURATION, 
-#LDAP_DUMP_DATABASE, 
-
-
-
-LDAP_DOMAIN=xavier.institute
-LDAP_BASE_DN=dc=xavier,dc=institute
-LDAP_ORGANISATION_NAME="Xaviers School for Gifted Youngsters"
-LDAP_ADMIN_USER=cn=admin
-LDAP_ADMIN_PASSWORD=admin
-LDAP_INIT_LDIF_PATH=examples/xavier_institute/init/ldif/1_automountMaps.ldif examples/xavier_institute/init/ldif/2_automounts.ldif examples/xavier_institute/init/ldif/3_organisationalUnits.ldif examples/xavier_institute/init/ldif/4_groups.ldif examples/xavier_institute/init/ldif/5_users.ldif
-LDAP_NFS_SERVER_IPADDR=nfs_server
-LDAP_INIT=true
-LDAP_INIT_BOOTSTRAP=true
-LDAP_INIT_LDIF_PATH=examples/xavier_institute/init/ldif/init.ldif
-#LDAP_UNSAFE_SELFWRITE_ACL
-#LDAP_PURGE_DATABASE
-#LDAP_PPOLICY_SCHEMA_NEEDS_UPDATE
-#LDAP_INVALID_CONFIG, 
-#LDAP_MOVE_OLD_DATABASE, 
-#LDAP_BACK_END, 
-#LDAP_NO_CONFIGURATION, 
-#LDAP_DUMP_DATABASE, 
 
 
