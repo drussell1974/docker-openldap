@@ -8,7 +8,7 @@
   "repository": "https://github.com/drussell1974/docker-openldap",
   "pre-commit": [ "build"],
   "scripts": {
-    "build": "sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example   &&  tar --exclude-from=.gitignore -czvf  openldap-server.tar.gz docker-compose.yml.example .env.example openldap-ubuntu/Dockerfile openldap-ubuntu/docker-entrypoint.sh openldap-ubuntu/slapd-debconf.sh openldap-ubuntu/autofs-ldap.ldif openldap-ubuntu/custom/init/ openldap-ubuntu/custom/data/ openldap-ubuntu/custom/cert/ openldap-ubuntu/custom/examples/ nfs-server/Dockerfile nfs-server/docker-entrypoint.sh"
+    "build": "sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example .env .env.example && tar --exclude-from=.gitignore -czvf  openldap-server.tar.gz docker-compose.yml.example .env.example openldap-ubuntu/Dockerfile openldap-ubuntu/docker-entrypoint.sh openldap-ubuntu/slapd-debconf.sh openldap-ubuntu/autofs-ldap.ldif openldap-ubuntu/custom/init/ openldap-ubuntu/custom/data/ openldap-ubuntu/custom/cert/ openldap-ubuntu/custom/examples/ nfs-server/Dockerfile nfs-server/docker-entrypoint.sh"
   },
   "dependencies": {
     "pre-commit": "^1.2.2"
