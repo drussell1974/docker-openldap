@@ -22,7 +22,7 @@ services:
                         - 636:636
         nfs_server:
                 build: ./nfs-server
-                image: drussell1974/open-ldap:nfs-v0.0.17-alpha
+                image: drussell1974/openldap:nfs-v0.0.17-alpha
                 external_links:
                         - ldap_server
                 environment:
