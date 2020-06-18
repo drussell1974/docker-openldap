@@ -1,3 +1,6 @@
+## teachers ##
+
+# prof.xavier
 dn: uid=prof.xavier,ou=employees,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
@@ -6,13 +9,21 @@ objectClass: posixAccount
 uid: prof.xavier
 sn: Xavier
 givenName: Charles Francis
-cn: Professor Charles Xavier
+cn: Prof. Xavier
 displayName: Professor Xavier
 uidNumber: 1001
 gidNumber: 5001
 userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/cxavier
+
+dn: cn=prof.xavier,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: prof.xavier
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+
+# wolverine
 
 dn: uid=wolverine,ou=employees,dc=example,dc=net
 objectClass: person
@@ -30,6 +41,14 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/wolverine
 
+dn: cn=wolverine,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: wolverine
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+
+# storm
+
 dn: uid=storm,ou=employees,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
@@ -46,6 +65,14 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/storm
 
+dn: cn=storm,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: storm
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+
+# rogue
+
 dn: uid=rogue,ou=employees,dc=example,dc=net
 objectClass: inetOrgPerson
 objectClass: posixAccount
@@ -61,7 +88,15 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/rogue
 
-# Students
+dn: cn=rogue,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: rouge
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+
+## Students ##
+
+# gentle
 
 dn: uid=gentle,ou=students,dc=example,dc=net
 objectClass: person
@@ -79,6 +114,14 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/10001
 
+dn: cn=gentle,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: gentle
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+
+# rockslide
+
 dn: uid=rockslide,ou=students,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
@@ -95,6 +138,14 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/10002
 
+dn: cn=rockslide,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: rockslide
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+
+# ink
+
 dn: uid=ink,ou=students,dc=example,dc=net
 objectClass: person
 objectClass: organizationalPerson
@@ -110,4 +161,10 @@ gidNumber: 5002
 userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/10003
+
+dn: cn=ink,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+cn: ink
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
 

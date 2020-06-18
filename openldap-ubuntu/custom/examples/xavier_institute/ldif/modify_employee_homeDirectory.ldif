@@ -1,34 +1,46 @@
 dn: uid=wolverine,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/wolverine
+homeDirectory: /home/wolverine
+
+dn: cn=wolverine,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
 
 dn: uid=storm,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/storm
+homeDirectory: /home/storm
 
 dn: uid=prof.xavier,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/cxavier
+homeDirectory: /home/cxavier
+
+dn: cn=prof.xavier,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+changetype: add
+cn: prof.xavier
+objectClass: top
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
 
 dn: uid=rogue,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/rogue
+homeDirectory: /home/rogue
 
 dn: uid=gentle,ou=students,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/10001
+homeDirectory: /home/10001
 
 dn: uid=rockslide,ou=students,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/10002
+homeDirectory: /home/10002
 
 dn: uid=ink,ou=students,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /mnt/nfs/home/10003
+homeDirectory: /home/10003
