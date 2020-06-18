@@ -18,4 +18,9 @@ git add openldap-server.tar.gz docker-compose.yml docker-compose.yml.example .en
 
 git tag $newversion
 
-echo ">>>>>>>> git push origin $newversion"
+echo "#############################################################
+#   YOU MUST GIT PUSH THE REPOSITORY BEFORE PUSHING THE TAG #
+# > git push                                                #
+# > git push origin $newversion                             #
+#                                                           # 
+#############################################################"
