@@ -20,6 +20,27 @@ echo "${NFS_PUBLIC_CONT} ${NFS_IPADDR_ALLOWED}(rw,sync,no_subtree_check)" >> /et
 echo "\ndocker-entrypoint.sh: allowing ${NFS_IPADDR_ALLOWED} to ${NFS_HOME_CONT} in /etc/exports ..."
 echo "${NFS_HOME_CONT} ${NFS_IPADDR_ALLOWED}(rw,sync,no_root_squash,no_subtree_check)" >> /etc/exports
 
+## nfs4 only ##
+
+# nfs4 only: disable then readd both existing config options in /etc/default/nfs-common
+echo "\ndisable nfs4 in /etc/default/nfs-common and /etc/default/nfs-kernel-server"
+
+sed -i "s/NEED_STATD=/#NEED_STATD=/" "s/NEED_IDMAPD=/#NEED_IDMAPD=/" /etc/default/nfs-common
+echo "NEED_STATD=\"no\"" >> /etc/default/nfs-common
+echo "NEED_IDMAPD=\"yes\"" >> /etc/default/nfs-common
+
+# disable then readd exiting config options in etc/nfs-kernel-server
+
+sed -i "s/RPCNFSDOPS=/#RPCNFSDOPTS=/" "s/RPCMOUNTOPTS=/#RPCMOUNTOPTS=/" /etc/default/nfs-kernel-server
+echo "RPCNFSDOPTS=\"-N 2 -N 3\"" >> etc/default/nfs-kernel-server
+echo "RPCMOUNTDOPTS=\"--manage-gids -N 2 -N 3\"" >> etc/default/nfs-kernel-server
+
+# nfs4 only: disable rpcbind
+
+sudo systemctl mask rpcbind.service
+sudo systemctl mask rpcbind.socket
+
+
 # refresh nfs service
 
 echo "\ndocker-entrypoint.sh: applying exportfs and restarting portmap and nfs-kernel-server..."

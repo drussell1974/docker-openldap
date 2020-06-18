@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash i 
 
 YELLOW='\133[0;31m'
 NC='\033[0m'
