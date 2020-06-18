@@ -3,7 +3,7 @@
 version: "3.2"
 services:
         ldap_server:
-                image: drussell1974/openldap:ldap-0.1.3-alpha
+                image: drussell1974/openldap:ldap-v2020.06.19.0319-alpha
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
                         - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-admin}
@@ -19,7 +19,7 @@ services:
                         - 389:389
                         - 636:636
         nfs_server:
-                image: drussell1974/openldap:nfs-0.1.3-alpha
+                image: drussell1974/openldap:nfs-v2020.06.19.0319-alpha
                 external_links:
                         - ldap_server
                 environment:

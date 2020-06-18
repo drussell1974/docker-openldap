@@ -1,41 +1,23 @@
 #!/bin/bash i 
 
-YELLOW='\133[0;31m'
-NC='\033[0m'
+## Replace version ##
 
-currv=$(git describe --tags)
+# regex match e.g. v2020.06.19.0319-alpha
 
-# get input for new version
+match=v[0-9][0-9][0-9][0-9]\.[0-9][0-9]\.[0-9][0-9]\.[0-9][0-9][0-9][0-9]
 
-echo "Current version is: $currv\nPlease enter the new version # (format 1.0.0):\n"
+timestamp=$(date +"v%Y.%m.%d.%H%M%S")
 
-read newv
+sed "s/$match/$timestamp/" docker-compose.yml
 
-echo "Please enter a build suffix (e.g. beta or rc)"
-#TODO: Enter 1. alpha  2. beta  3. rc 4
-read rtype
+#sed -i "s/$match/date +$timestamp/" docker-compose.yml
 
-
-#if [ rtype ]then;
-#	
-#fi
-
-echo Creating tag v$newv-$rtype
-
-#TODO: Continue? Loop if N
-#read start_over
-
-
-match=v[0-9]\.[0-9]\.[0-9].*
-
-sed "s/$match/$newv-$rtype/" docker-compose.yml
-
-#TODO: Confirm preview
-
-sed -i "s/$match/$newv-$rtype/" docker-compose.yml
+# Add automatically changed files to the commit
 
 git add openldap-server.tar.gz docker-compose.yml docker-compose.yml.example .env.example
 
-git tag v$newv-$rtype
+# Create Tag
 
-echo -e "${YELLOW}git tag v$newv-$rtype${NC} created! Remember to ${YELLOW}git push origin v$newv-$type${NC}"
+git tag $timestamp
+
+echo -e "git tag $timestamp created! Remember to git push origin v$timestamp"
