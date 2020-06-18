@@ -2,9 +2,7 @@ dn: cn=/home,ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
 cn: /home
 objectClass: top
 objectClass: automount
-automountInformation: ldap:ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
-
-# --timeout=60 --ghost
+automountInformation: ldap:ou=auto.home,ou=automount,ou=admin,dc=example,dc=net --timeout=60 --ghost
 
 dn: ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
 ou: auto.home
