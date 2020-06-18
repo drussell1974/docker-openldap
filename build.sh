@@ -21,6 +21,6 @@ git tag $newversion
 echo "#############################################################
 #   YOU MUST GIT PUSH THE REPOSITORY BEFORE PUSHING THE TAG #
 # > git push                                                #
-# > git push origin $newversion                    #
+# > git push origin $newversion                      #
 #                                                           # 
 #############################################################"
