@@ -12,7 +12,7 @@
     "build-yaml": "sed '/build:/d; /# TODO:/d;' docker-compose.yml > docker-compose.yml.example",
     "build-env": "cp .env .env.example",
     "build-tar": "tar --exclude-from=.gitignore -czvf  openldap-server.tar.gz docker-compose.yml.example .env.example openldap-ubuntu/Dockerfile openldap-ubuntu/docker-entrypoint.sh openldap-ubuntu/slapd-debconf.sh openldap-ubuntu/autofs-ldap.ldif openldap-ubuntu/custom/init/ openldap-ubuntu/custom/data/ openldap-ubuntu/custom/cert/ openldap-ubuntu/custom/examples/ nfs-server/Dockerfile nfs-server/docker-entrypoint.sh",
-    "build-tag":"sh -i build.sh",
+    "build-tag":"sh build.sh",
     "build-gitadd":"git add openldap-server.tar.gz docker-compose.yml docker-compose.yml.example .env.example" 
   },
   "dependencies": {

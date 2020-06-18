@@ -1,16 +1,14 @@
-#!/bin/bash i 
+#!/bin/sh
 
 ## Replace version ##
 
 # regex match e.g. v2020.06.19.0319-alpha
 
 match=v[0-9][0-9][0-9][0-9]\.[0-9][0-9]\.[0-9][0-9]\.[0-9][0-9][0-9][0-9]
+ 
+newversion=$(date +"v%Y.%m.%d.%H%M%S")
 
-timestamp=$(date +"v%Y.%m.%d.%H%M%S")
-
-sed "s/$match/$timestamp/" docker-compose.yml
-
-#sed -i "s/$match/date +$timestamp/" docker-compose.yml
+sed -i "s/$match/$newversion/" docker-compose.yml
 
 # Add automatically changed files to the commit
 
@@ -18,6 +16,6 @@ git add openldap-server.tar.gz docker-compose.yml docker-compose.yml.example .en
 
 # Create Tag
 
-git tag $timestamp
+git tag $newversion
 
-echo -e "git tag $timestamp created! Remember to git push origin v$timestamp"
+echo ">>>>>>>> git push origin $newversion"
