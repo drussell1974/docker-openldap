@@ -46,9 +46,11 @@ _ldapadd_autofs_ldif() {
 	
 	# 1. Add autofs-ldap.ldif to ldap directory
 
-	echo "docker-entrypoing.sh: adding autofs-ldap.ldif to ldap directory ${LDAP_BASE_DN}\n"
-	
-	ldapadd -Y EXTERNAL -H ldapi:/// -f autofs-ldap.ldif 
+	echo "\ndocker-entrypoint.sh: adding autofs-ldap.ldif to ldap directory ${LDAP_BASE_DN}\n"
+
+	cp autofs-ldap.ldif /etc/ldap/schema/autofs.ldif
+
+ 	ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/ldap/schema/autofs.ldif 
 }
 
 #---------------------------------------------------------#
