@@ -1,46 +1,62 @@
 dn: uid=wolverine,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/wolverine
+homeDirectory: /nfs/home/wolverine
 
 dn: cn=wolverine,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
 changetype: modify
 replace: automountInformation
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
+
 
 dn: uid=storm,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/storm
+homeDirectory: /nfs/home/storm
+
+dn: cn=storm,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+#cn: storm
+#objectClass: top
+#objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
+
 
 dn: uid=prof.xavier,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/cxavier
+homeDirectory: /nfs/home/cxavier
 
 dn: cn=prof.xavier,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
-changetype: add
-cn: prof.xavier
-objectClass: top
-objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/home/&
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
+
 
 dn: uid=rogue,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/rogue
+homeDirectory: /nfs/home/rogue
+
 
 dn: uid=gentle,ou=students,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/10001
+homeDirectory: /nfs/home/10001
+
+dn: cn=gentle,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
 
 dn: uid=rockslide,ou=students,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/10002
+homeDirectory: /nfs/home/10002
+
 
 dn: uid=ink,ou=students,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /home/10003
+homeDirectory: /nfs/home/10003
