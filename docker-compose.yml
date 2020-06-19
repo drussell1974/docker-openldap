@@ -5,7 +5,7 @@ version: "3.2"
 services:
         ldap_server:
                 build: ./openldap-ubuntu
-                image: drussell1974/openldap:ldap-v2020.06.18.135021
+                image: drussell1974/openldap:ldap-v2020.06.19.150554
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
                         - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-admin}
@@ -20,19 +20,3 @@ services:
                 ports:
                         - 389:389
                         - 636:636
-        nfs_server:
-                build: ./nfs-server
-                image: drussell1974/openldap:nfs-v2020.06.18.135021
-                external_links:
-                        - ldap_server
-                environment:
-                        - NFS_IPADDR_ALLOWED=${NFS_IPADDR_ALLOWED}
-                        - NFS_PUBLIC_CONT=${NFS_PUBLIC_CONT}
-                        - NFS_HOME_CONT=${NFS_HOME_CONT}
-                volumes:
-                        - /mnt/nfs_share/Public:${NFS_PUBLIC_CONT}
-                        - /mnt/nfs_share/home:${NFS_HOME_CONT}
-                ports:
-                        - 2049:2049
-
-

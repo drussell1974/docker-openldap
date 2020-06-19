@@ -9,9 +9,15 @@ ou: auto.home
 objectClass: top
 objectClass: automountMap
 
-#dn: cn=wolverine,ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
-#cn: wolverine
-#objectClass: top
-#objectClass: automount
-#automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs/home/&
-#automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/home/&A
+
+dn: cn=/public,ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
+cn: /public
+objectClass: top
+objectClass: automount
+automountInformation: ldap:ou=auto.misc,ou=automount,ou=admin,dc=example,dc=net 
+#--timeout=60 --ghost
+
+dn: ou=auto.misc,ou=automount,ou=admin,dc=example,dc=net
+ou: auto.misc
+objectClass: top
+objectClass: automountMap
