@@ -6,11 +6,6 @@
   "author": "Dave Russell",
   "license": "MIT",
   "repository": "https://github.com/drussell1974/docker-openldap",
-  "husky": {
-  	"hooks": {
-		"pre-push": "sh build-git_tag.sh"
-      	}
-  },
   "pre-commit": [
     "build-msg",
     "build-yaml",
