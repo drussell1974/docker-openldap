@@ -21,7 +21,6 @@
     "build-git_add": "git add openldap-server.tar.gz docker-compose.yml docker-compose.yml.example .env.example"
   },
   "devDependencies": {
-    "husky": "^4.2.5",
     "pre-commit": "^1.2.2"
   }
 }
