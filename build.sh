@@ -10,9 +10,10 @@ newversion=$(date +"v%Y.%m.%d.%H%M%S")
 
 sed -i "s/$match/$newversion/" docker-compose.yml
 
-# Add automatically changed files to the commit
+# Add automatically changed files and commit
 
 git add openldap-server.tar.gz docker-compose.yml docker-compose.yml.example .env.example
+git commit -m "build.sh: add build files for $newversion"
 
 # Create Tag
 
