@@ -1,8 +1,14 @@
+dn: ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
+ou: auto.master
+objectClass: top
+objectClass: automountMap
+
+
 dn: cn=/home,ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
 cn: /home
-objectClass: top
 objectClass: automount
-automountInformation: ldap:ou=auto.home,ou=automount,ou=admin,dc=example,dc=net --timeout=60 --ghost
+automountInformation: ldap 0.0.0.0:ou=auto.home,ou=automount,ou=admin,dc=example,dc=net 
+#--timeout=60 --ghost
 
 dn: ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
 ou: auto.home
@@ -12,19 +18,17 @@ objectClass: automountMap
 
 dn: cn=/public,ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
 cn: /public
-objectClass: top
 objectClass: automount
-automountInformation: ldap:ou=auto.misc,ou=automount,ou=admin,dc=example,dc=net --timeout=60 --ghost
+automountInformation: ldap 0.0.0.0:ou=auto.misc,ou=automount,ou=admin,dc=example,dc=net 
+#--timeout=60 --ghost
 
 dn: ou=auto.misc,ou=automount,ou=admin,dc=example,dc=net
 ou: auto.misc
 objectClass: top
 objectClass: automountMap
 
-dn: cn=/,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
-cn: /
-objectClass: top
-objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/&
-
-
+#dn: cn=/,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+#cn: /
+#objectClass: top
+#objectClass: automount
+#automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/&

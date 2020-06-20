@@ -8,8 +8,8 @@ ou: automount
 objectClass: top
 objectClass: organizationalUnit
 
-dn: ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
-ou: auto.master
-objectClass: top
-objectClass: automountMap
+#dn: ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
+#ou: auto.master
+#objectClass: top
+#objectClass: automountMap
 

@@ -14,7 +14,7 @@ automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsiz
 dn: uid=storm,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
-homeDirectory: /nfs/home/storm
+homeDirectory: /home/storm
 
 dn: cn=storm,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
 changetype: modify
@@ -22,7 +22,7 @@ replace: automountInformation
 #cn: storm
 #objectClass: top
 #objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/storm
 
 
 dn: uid=prof.xavier,ou=employees,dc=xavier,dc=institute
