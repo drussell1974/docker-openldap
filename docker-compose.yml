@@ -5,7 +5,7 @@ version: "3.2"
 services:
         ldap_server:
                 build: ./openldap-ubuntu
-                image: drussell1974/openldap:ldap-v2020.06.20.051448
+                image: drussell1974/openldap:ldap-v2020.06.23.014649
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
                         - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-admin}
