@@ -1,3 +1,25 @@
+## netadmins ##
+
+dn: uid=drussell1974,cn=netadmins,dc=example,dc=net
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: drussell1974
+cn: drussell
+uidNumber: 1
+gidNumber: 5000
+loginShell: /bin/bash
+homeDirectory: /home/drussell
+
+dn: uid=pi,cn=netadmins,dc=example,dc=net
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: pi
+cn: raspberry_pi
+uidNumber: 2
+gidNumber: 5000
+loginShell: /bin/bash
+homeDirectory: /home/pi
+
 ## teachers ##
 
 # prof.xavier

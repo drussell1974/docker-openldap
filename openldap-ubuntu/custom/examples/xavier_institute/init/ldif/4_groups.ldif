@@ -1,4 +1,8 @@
 # Groups
+dn: cn=netadmins,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: netadmins
+gidNumber: 5000
 
 dn: cn=teachers,ou=employees,dc=example,dc=net
 objectClass: posixGroup
@@ -14,4 +18,5 @@ dn: cn=technical,ou=employees,dc=example,dc=net
 objectClass: posixGroup
 cn: technical
 gidNumber: 5003
+
 
