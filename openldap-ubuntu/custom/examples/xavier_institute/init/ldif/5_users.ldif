@@ -1,6 +1,7 @@
 ## netadmins ##
 
 dn: uid=drussell1974,ou=netadmins,dc=example,dc=net
+objectClass: organizationalRole
 objectClass: posixAccount
 objectClass: shadowAccount
 uid: drussell1974
@@ -11,6 +12,7 @@ loginShell: /bin/bash
 homeDirectory: /home/drussell
 
 dn: uid=pi,ou=netadmins,dc=example,dc=net
+objectClass: organizationalRole
 objectClass: posixAccount
 objectClass: shadowAccount
 uid: pi
@@ -24,10 +26,10 @@ homeDirectory: /home/pi
 
 # prof.xavier
 dn: uid=prof.xavier,ou=employees,dc=example,dc=net
-objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 uid: prof.xavier
 sn: Xavier
 givenName: Charles Francis
@@ -47,10 +49,10 @@ automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/cxavier
 # wolverine
 
 dn: uid=wolverine,ou=employees,dc=example,dc=net
-objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 uid: wolverine
 sn: Howlett
 givenName: James
@@ -70,10 +72,10 @@ automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/wolverine
 # storm
 
 dn: uid=storm,ou=employees,dc=example,dc=net
-objectClass: person
 objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 uid: storm
 sn: Munroe
 givenName: Ororo
@@ -93,6 +95,7 @@ automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/storm
 # rogue
 
 dn: uid=rogue,ou=employees,dc=example,dc=net
+objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
@@ -117,10 +120,9 @@ automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/rogue
 # gentle
 
 dn: uid=gentle,ou=students,dc=example,dc=net
-objectClass: person
-objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 uid: 10001
 sn: Abidemi
 givenName: Nezhno
@@ -140,10 +142,9 @@ automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/gentle
 # rockslide
 
 dn: uid=rockslide,ou=students,dc=example,dc=net
-objectClass: person
-objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 uid: rockslide
 sn: Vaccarro
 givenName: Santo
@@ -163,10 +164,9 @@ automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/rockslide
 # ink
 
 dn: uid=ink,ou=students,dc=example,dc=net
-objectClass: person
-objectClass: organizationalPerson
 objectClass: inetOrgPerson
 objectClass: posixAccount
+objectClass: shadowAccount
 uid: ink
 sn: Gitter
 givenName: Eric

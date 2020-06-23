@@ -1,5 +1,10 @@
 # organisational units
 
+dn: ou=netadmins,dc=example,dc=net
+objectClass: top
+objectClass: organizationalUnit
+ou: netadmins
+
 dn: ou=employees,dc=example,dc=net
 objectClass: organizationalUnit
 ou: employees
@@ -7,4 +12,3 @@ ou: employees
 dn: ou=students,dc=example,dc=net
 objectClass: organizationalUnit
 ou: students
-
