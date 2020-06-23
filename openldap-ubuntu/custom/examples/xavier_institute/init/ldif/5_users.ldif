@@ -17,10 +17,10 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/cxavier
 
-dn: cn=prof.xavier,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
 cn: prof.xavier
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/cxavier
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/cxavier
 
 # wolverine
 
@@ -40,10 +40,10 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/wolverine
 
-dn: cn=wolverine,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=wolverine,ou=auto.home,dc=example,dc=net
 cn: wolverine
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/wolverine
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/wolverine
 
 # storm
 
@@ -63,10 +63,10 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/storm
 
-dn: cn=storm,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=storm,ou=auto.home,dc=example,dc=net
 cn: storm
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/storm
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/storm
 
 # rogue
 
@@ -85,10 +85,10 @@ userPassword: password
 loginShell: /bin/bash
 homeDirectory: /home/rogue
 
-dn: cn=rogue,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
-cn: rouge
+dn: cn=rogue,ou=auto.home,dc=example,dc=net
+cn: rogue
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/rogue
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/rogue
 
 ## Students ##
 
@@ -108,12 +108,12 @@ uidNumber: 10001
 gidNumber: 5002
 userPassword: password
 loginShell: /bin/bash
-homeDirectory: /home/10001
+homeDirectory: /home/gentle
 
-dn: cn=gentle,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=gentle,ou=auto.home,dc=example,dc=net
 cn: gentle
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/gentle
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/gentle
 
 # rockslide
 
@@ -131,12 +131,12 @@ uidNumber: 10002
 gidNumber: 5002
 userPassword: password
 loginShell: /bin/bash
-homeDirectory: /home/10002
+homeDirectory: /home/rockslide
 
-dn: cn=rockslide,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=rockslide,ou=auto.home,dc=example,dc=net
 cn: rockslide
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/rockslide
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/rockslide
 
 # ink
 
@@ -154,9 +154,9 @@ uidNumber: 10003
 gidNumber: 5002
 userPassword: password
 loginShell: /bin/bash
-homeDirectory: /home/10003
+homeDirectory: /home/ink
 
-dn: cn=ink,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=ink,ou=auto.home,dc=example,dc=net
 cn: ink
 objectClass: automount
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/mnt/nfs_share/home/ink
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/ink
