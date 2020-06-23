@@ -1,5 +1,5 @@
 # Groups
-dn: cn=netadmins,dc=example,dc=net
+dn: cn=netadmins,ou=netadmins,dc=example,dc=net
 objectClass: posixGroup
 cn: netadmins
 gidNumber: 5000
