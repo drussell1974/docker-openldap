@@ -3,7 +3,7 @@
 version: "3.2"
 services:
         ldap_server:
-                image: drussell1974/openldap:ldap-v2020.06.23.152118
+                image: drussell1974/openldap:ldap-v2020.06.24.142136
                 environment:
                         - LDAP_ADMIN_USER=${LDAP_ADMIN_USER:-cn=admin}
                         - LDAP_ADMIN_PASSWORD=${LDAP_ADMIN_PASSWORD:-admin}
