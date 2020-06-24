@@ -19,4 +19,15 @@ objectClass: posixGroup
 cn: technical
 gidNumber: 5003
 
+dn: cn=roamingusers,dc=example,dc=net
+objectClass: posixGroup
+cn: roamingusers
+gidNumber: 5004
+memberUid: 1001
+memberUid: 1002
+memberUid: 1003
+memberUid: 1004
+memberUid: 10001
+memberUid: 10002
+memberUid: 10003
 

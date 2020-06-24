@@ -9,8 +9,7 @@ objectClass: automountMap
 dn: cn=/home,ou=auto.master,dc=example,dc=net
 cn: /home
 objectClass: automount
-automountInformation: ldap 0.0.0.0:ou=auto.home,dc=example,dc=net 
-#--timeout=60 --ghost
+automountInformation: ldap 0.0.0.0:ou=auto.home,dc=example,dc=net --timeout=60 --ghost
 
 #dn: ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
 dn: ou=auto.home,dc=example,dc=net
@@ -23,8 +22,7 @@ objectClass: automountMap
 dn: cn=/public,ou=auto.master,dc=example,dc=net
 cn: /public
 objectClass: automount
-automountInformation: ldap 0.0.0.0:ou=auto.misc,dc=example,dc=net 
-#--timeout=60 --ghost
+automountInformation: ldap 0.0.0.0:ou=auto.misc,dc=example,dc=net --timeout=60 --ghost
 
 #dn: ou=auto.misc,ou=automount,ou=admin,dc=example,dc=net
 dn: ou=auto.misc,dc=example,dc=net

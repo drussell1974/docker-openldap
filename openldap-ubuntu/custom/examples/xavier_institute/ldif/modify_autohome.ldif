@@ -1,3 +1,8 @@
+#dn: uid=ink,ou=students,dc=xavier,dc=institute
+#changetype: modify
+#add: host
+#host: raspberrypi
+
 dn: uid=prof.xavier,ou=employees,dc=xavier,dc=institute
 changetype: modify
 replace: homeDirectory
@@ -16,4 +21,9 @@ homeDirectory: /home/wolverine
 dn: cn=wolverine,ou=auto.home,dc=xavier,dc=institute
 changetype: modify
 replace: automountInformation
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid jtc1:/home/wolverine
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,uid=1002,gid=5002 jtc1:/home/wolverine
+
+dn: cn=gentle,ou=auto.home,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,uid=10001,gid=5002 jtc1:/home/wolverine

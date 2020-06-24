@@ -44,7 +44,7 @@ homeDirectory: /home/cxavier
 dn: cn=prof.xavier,ou=auto.home,dc=example,dc=net
 cn: prof.xavier
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/cxavier
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/cxavier
 
 # wolverine
 
@@ -67,7 +67,7 @@ homeDirectory: /home/wolverine
 dn: cn=wolverine,ou=auto.home,dc=example,dc=net
 cn: wolverine
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/wolverine
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/wolverine
 
 # storm
 
@@ -90,7 +90,7 @@ homeDirectory: /home/storm
 dn: cn=storm,ou=auto.home,dc=example,dc=net
 cn: storm
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/storm
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/storm
 
 # rogue
 
@@ -113,7 +113,7 @@ homeDirectory: /home/rogue
 dn: cn=rogue,ou=auto.home,dc=example,dc=net
 cn: rogue
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/rogue
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/rogue
 
 ## Students ##
 
@@ -137,7 +137,7 @@ homeDirectory: /home/gentle
 dn: cn=gentle,ou=auto.home,dc=example,dc=net
 cn: gentle
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/gentle
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/gentle
 
 # rockslide
 
@@ -159,7 +159,7 @@ homeDirectory: /home/rockslide
 dn: cn=rockslide,ou=auto.home,dc=example,dc=net
 cn: rockslide
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/rockslide
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/rockslide
 
 # ink
 
@@ -181,4 +181,4 @@ homeDirectory: /home/ink
 dn: cn=ink,ou=auto.home,dc=example,dc=net
 cn: ink
 objectClass: automount
-automountInformation: -fstype=nfs,hard,intr,nodev,nosuid 0.0.0.0:/home/ink
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid,gid=5004 0.0.0.0:/home/ink

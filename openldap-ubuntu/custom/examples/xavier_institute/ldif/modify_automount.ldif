@@ -1,16 +1,17 @@
 # automounts
 
-dn: cn=/public,ou=auto.master,ou=automount,ou=admin,dc=xavier,dc=institute
-changetype: modify
-replace: automountInformation
-automountInformation: ldap 192.168.1.120:ou=auto.misc,ou=automount,ou=admin,dc=xavier,dc=institute --timeout=60 --ghost
+#dn: cn=/public,ou=auto.master,ou=automount,ou=admin,dc=xavier,dc=institute
+#changetype: modify
+#replace: automountInformation
+#automountInformation: ldap 192.168.1.120:ou=auto.misc,dc=xavier,dc=institute --timeout=60 --ghost
 
-dn: cn=/home,ou=auto.master,ou=automount,ou=admin,dc=xavier,dc=institute
+dn: cn=/home,ou=auto.master,dc=xavier,dc=institute
 changetype: modify
 replace: automountInformation
-automountInformation: ldap 192.168.1.120:ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute --timeout=60 --ghost
+#automountInformation: ldap 192.168.1.120:ou=auto.home,dc=xavier,dc=institute --timeout=60 --ghost
+automountInformation: ldap 192.168.1.120:ou=auto.home,dc=xavier,dc=institute --timeout=60 --ghost
 
-dn: cn=/,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
-changetype: modify
-replace: automountInformation
-automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
+#dn: cn=/,ou=auto.home,ou=automount,ou=admin,dc=xavier,dc=institute
+#changetype: modify
+#replace: automountInformation
+#automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 192.168.1.120:/mnt/nfs_share/home/&
