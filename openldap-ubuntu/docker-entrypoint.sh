@@ -78,7 +78,7 @@ _ldapadd_init_ldif() {
 
                                 # replace automountInformation
                                 echo "docker-entrypoint.sh: apply nfs automount ip address with ${LDAP_NFS_SERVER_IPADDR} \n"                           
-                                sed -i "s/0.0.0.0/${LDAP_NFS_SERVER_IPADDR}/" ${LDAP_INIT_LDIF_PATH}
+                                sed -i "s/0.0.0.0/${LDAP_NFS_SERVER_IPADDR}/" ${LDAP_INIT_LDIF_PATH
 
                                 # add data to ldap directory
                                 echo "docker-entrypoint.sh: adding file to ldap directory\n"
