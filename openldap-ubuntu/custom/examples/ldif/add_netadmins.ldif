@@ -1,0 +1,24 @@
+dn: cn=sysadmin,dc=example,dc=net
+objectClass: organizationalRole
+cn: sysadmin
+
+dn: uid=drussell1974,cn=netadmins,ou=employees,dc=example,dc=net
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: drussell1974
+cn: drussell
+uidNumber: 1
+gidNumber: 5001
+loginShell: /bin/bash
+homeDirectory: /home/drussell
+
+dn: uid=pi,cn=netadmins,ou=employees,dc=example,dc=net
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: pi
+cn: raspberry_pi
+uidNumber: 2
+gidNumber: 5001
+loginShell: /bin/bash
+homeDirectory: /home/pi
+

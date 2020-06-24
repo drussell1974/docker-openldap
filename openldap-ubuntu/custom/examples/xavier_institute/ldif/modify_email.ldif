@@ -1,0 +1,19 @@
+# Applies to classes: inetOrgPerson 
+
+dn: uid=wolverine,ou=employees,dc=xavier,dc=institute
+add: mail
+mail: wolverine@xavier.institute 
+
+dn: uid=prof.xavier,ou=employees,dc=xavier,dc=institute
+add: mail
+mail: prof@xavier.institute 
+
+dn: uid=rogue,ou=employees,dc=xavier,dc=institute
+add: mail
+mail: rogue@xavier.institute 
+
+dn: uid=storm,ou=employees,dc=xavier,dc=institute
+add: mail
+mail: storm@xavier.institute 
+
+

@@ -1,0 +1,10 @@
+dn: cn=wolverine,ou=auto.home,dc=example,dc=net
+changetype: delete
+
+dn: cn=wolverine,ou=auto.home,ou=automount,ou=admin,dc=example,dc=net
+changetype: add
+objectClass: automount
+automountInformation: -fstype=nfs,rw,hard,intr,nodev,exec,nosuid,rsize=8192,wsize=8192 0.0.0.0:/home/wolverine
+cn: wolverine
+
+

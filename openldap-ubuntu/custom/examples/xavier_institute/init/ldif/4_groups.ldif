@@ -1,0 +1,22 @@
+# Groups
+dn: cn=netadmins,ou=netadmins,dc=example,dc=net
+objectClass: posixGroup
+cn: netadmins
+gidNumber: 5000
+
+dn: cn=teachers,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: teachers
+gidNumber: 5001
+
+dn: cn=residential,ou=students,dc=example,dc=net
+objectClass: posixGroup
+cn: residential
+gidNumber: 5002
+
+dn: cn=technical,ou=employees,dc=example,dc=net
+objectClass: posixGroup
+cn: technical
+gidNumber: 5003
+
+

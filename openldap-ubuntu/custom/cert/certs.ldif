@@ -1,10 +1,10 @@
 dn: cn=config
 changeType: modify
 add: olcTLSCACertificateFile
-olcTLSCACertificateFile: /usr/src/app/root.jtc.crt
+olcTLSCACertificateFile: /usr/openldap/install/cert/${LDAP_CA_CERT_FILE}
 
 add: olcTLSCACertificateFile
-olcTLSCACertificateFile: /usr/src/app/ldap.jtc.crt
+olcTLSCACertificateFile: /usr/openldap/install/cert/${LDAP_SERVER_CERT_FILE}
 
 add: olcTLSCACertificateFile
-olcTLSCACertificateFile: /usr/src/app/ldap.jtc.key
+olcTLSCACertificateFile: /usr/openldap/install/cert/${LDAP_SERVER_KEY_FILE}

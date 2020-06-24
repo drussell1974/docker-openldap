@@ -1,0 +1,15 @@
+dn: ou=admin,dc=example,dc=net
+ou: admin
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=automount,ou=admin,dc=example,dc=net
+ou: automount
+objectClass: top
+objectClass: organizationalUnit
+
+#dn: ou=auto.master,ou=automount,ou=admin,dc=example,dc=net
+#ou: auto.master
+#objectClass: top
+#objectClass: automountMap
+

@@ -1,0 +1,5 @@
+
+dn: cn=teachers,ou=employees,dc=xavier,dc=institute
+objectClass: posixGroup
+cn: teachers
+gidNumber: 5001

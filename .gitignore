@@ -4,3 +4,6 @@
 *.csr
 *.key
 *.srl
+*.log
+yarn.lock
+node_modules/

@@ -1,0 +1,19 @@
+dn: uid=prof.xavier,ou=employees,dc=xavier,dc=institute
+changetype: modify
+replace: homeDirectory
+homeDirectory: /home/cxavier
+
+dn: cn=prof.xavier,ou=auto.home,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid jtc1:/home/cxavier
+
+dn: uid=wolverine,ou=employees,dc=xavier,dc=institute
+changetype: modify
+replace: homeDirectory
+homeDirectory: /home/wolverine
+
+dn: cn=wolverine,ou=auto.home,dc=xavier,dc=institute
+changetype: modify
+replace: automountInformation
+automountInformation: -fstype=nfs,hard,intr,nodev,nosuid jtc1:/home/wolverine

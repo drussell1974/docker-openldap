@@ -1,0 +1,5 @@
+dn: cn=wolverine,ou=auto.home,dc=xavier,dc=institute
+changetype: modify
+replace: cn
+cn: /wolverine
+

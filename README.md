@@ -2,24 +2,78 @@ OPENLDAP SERVER
 ================
 A basic LDAPServer installation with Docker. I've created it just for fun.
 
+Quick Start
+-----------
+-----------
+
+1. Download the build files to your docker host server
+
+- Option 1: Download all file from openldap-server.tar.gz
+ 
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
+
+> tar -xzvf openldap-server.tar.gz
+
+> mv docker-compose.yml.example docker-compose.yml
+
+> mv .env.example .env
+
+2. Run the container 
+
+> docker-compose up
+
+```
+drussell1974@jtc1:~/docker/openldap-server$ sudo docker-compose up
+Recreating openldap-server_ldapserver_1 ... done
+Attaching to openldap-server_ldapserver_1
+ldapserver_1  |  * Starting OpenLDAP slapd
+ldapserver_1  |    ...done.
+ldapserver_1  | docker-entrypoint.sh: checking init_ldif/init.ldif for dc=example,dc=net
+ldapserver_1  | docker-entrypoint.sh: adding ldif to ldap directory cn=admin,dc=example,dc=net
+ldapserver_1  | adding new entry "ou=employees,dc=example,dc=net"
+```
+
+3. Test ldap directory
+
+> ldapsearch -x -b dc=xavier,dc=institute -LLL
+
+```
+```
+
 Building the image
 ------------------
 ------------------
-1. Create a build folder and download the build files to your docker host server
+1. Download the build files to your docker host server
 
-> mkdir -p my_ldap_server
+- Option 1: Download all file from openldap-server.tar.gz
+ 
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-server.tar.gz
+
+> tar -xzvf openldap-server.tar.gz
+
+- Option 2: Download individual files
+
+> mkdir open-ldapserver
+
+> cd open-ldapserver
+
+- Download docker-compose.yml (Docker Compose only)
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/docker-compose.yml
 
 - Download Dockerfile
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/Dockerfile
-
-- Download docker-compose.yml (Docker Compose only)
-> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/docker-compose.yml
 
 - Download docker-entrypoint.sh
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/docker-entrypoint.sh
 
 - Download slapd-debconf.sh
 > wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/slapd-debconf.sh
+
+- Download autofs-ldap.ldif
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/autofs-ldap.ldif
+
+- Download environment variables example
+> wget https://raw.githubusercontent.com/drussell1974/docker-openldap/master/openldap-ubuntu/.env.example
 
 2. Ensure the sh files are executable
 
@@ -202,12 +256,43 @@ result: 0 Success
 Automating the build on hub.docker.com/drussell1974/openldap through github.com/drussell1974/docker-openldap
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
-1. Merge and push the build to the master branch on github.com/drussell/docker-openldap
 
-- Develop the changes on development branch. Once you've checked in your changes to development.
+The git.hub repository is linked to hub.docker.com/drussell1974/openldap
 
-> git checkout master
+Before triggering a release push the file tar.gz
 
-> git merge development
+> yarn build
 
-> git push
+> git commit -am "build" && git push
+
+Releases
+--------
+
+Tags pushed to the repository will create docker tag e.g. release-v1.0.0-rc
+
+1. Show latest tags
+
+> git fetch
+
+> git tag
+
+2. Create a new tag
+
+> git tag v1.0.0-rc
+
+> git push origin v1.0.0-rc
+
+3. On the docker server, change the image value on docker-compose.yaml
+
+> vim docker-compose.yml
+
+```
+image: drussell1974/openldap:release-v1.0.0-rc
+```
+
+Latest
+------
+
+Changes push/merged with master will create tag latest
+
+Merge with master and push the build to the master branch on github.com/drussell/docker-openldap

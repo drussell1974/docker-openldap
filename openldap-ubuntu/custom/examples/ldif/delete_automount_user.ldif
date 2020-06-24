@@ -1,0 +1,3 @@
+dn: cn=wolverine,ou=auto.home,dc=xavier,dc=institute
+changetype: delete
+
